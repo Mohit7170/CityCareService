@@ -60,19 +60,17 @@ public class AddressAdpater extends RecyclerView.Adapter<AddressAdpater.ViewHold
 
         AddressModal addressModal = addressModals.get(position);
 
-        String fullAddress = addressModal.getName().concat(" , ")
-                .concat(addressModal.getHouseNo()).concat(" , ")
+        String fullAddress = addressModal.getHouseNo().concat(" , ")
                 .concat(addressModal.getLandmark()).concat(" , ")
+                .concat(addressModal.getPlace()).concat(" , ")
                 .concat(addressModal.getAddress());
 
         holder.address_tv.setText(fullAddress);
 
-        holder.options_iv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deleteAddress(holder.getAdapterPosition());
-                //                openOptionsPopup(v, addressModal.getId());
-            }
+        holder.address_type_tv.setText(addressModal.getName());
+
+        holder.options_iv.setOnClickListener(v -> {
+            deleteAddress(holder.getAdapterPosition());
         });
     }
 
@@ -113,6 +111,7 @@ public class AddressAdpater extends RecyclerView.Adapter<AddressAdpater.ViewHold
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView address_tv;
+        private final TextView address_type_tv;
         private final ImageView options_iv;
 //        private final ImageView service_iv;
 //        private final LinearLayout main_layout_single_service;
@@ -121,6 +120,7 @@ public class AddressAdpater extends RecyclerView.Adapter<AddressAdpater.ViewHold
             super(itemView);
 
             address_tv = itemView.findViewById(R.id.address_tv);
+            address_type_tv = itemView.findViewById(R.id.address_type_tv);
             options_iv = itemView.findViewById(R.id.options_iv);
 //            service_iv = itemView.findViewById(R.id.service_iv);
 //            main_layout_single_service = itemView.findViewById(R.id.main_layout_single_service);

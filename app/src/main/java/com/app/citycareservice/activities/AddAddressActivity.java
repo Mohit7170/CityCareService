@@ -5,21 +5,23 @@ import static android.view.View.VISIBLE;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Address;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import com.app.citycareservice.R;
+import com.app.citycareservice.interfaces.sheetDismissListner;
 import com.app.citycareservice.modals.AddressModal.AddressModal;
 import com.app.citycareservice.utils.FetchLocation;
 import com.app.citycareservice.utils.HelperClass;
@@ -27,12 +29,13 @@ import com.app.citycareservice.utils.Params;
 import com.app.citycareservice.utils.SharedPrefHandler;
 import com.app.citycareservice.utils.roomDB.AddressDatabase;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
-public class AddAddressActivity extends AppCompatActivity implements Params {
+public class AddAddressActivity extends BottomSheetDialogFragment implements Params {
 
     private static final String TAG = "AddAddressActivity";
     private Activity activity;
@@ -52,7 +55,13 @@ public class AddAddressActivity extends AppCompatActivity implements Params {
 
     private FetchLocation fetchLocation;
 
-    @Override
+    private sheetDismissListner sheetDismissListner;
+
+    public AddAddressActivity(sheetDismissListner sheetDismissListner) {
+        this.sheetDismissListner = sheetDismissListner;
+    }
+
+/*    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bottom_sheet_add_address);
@@ -92,6 +101,111 @@ public class AddAddressActivity extends AppCompatActivity implements Params {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: Saved");
+                validateForm();
+            }
+        });
+
+    }*/
+
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.bottom_sheet_add_address, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        activity = requireActivity();
+        place_name_tv = view.findViewById(R.id.place_name_tv);
+
+        address_tv = view.findViewById(R.id.address_tv);
+        house_no_tif = view.findViewById(R.id.house_no_tif);
+        landmark_tif = view.findViewById(R.id.landmark_tif);
+        name_tif = view.findViewById(R.id.name_tif);
+        save_btn = view.findViewById(R.id.save_btn);
+        refresh_iv = view.findViewById(R.id.refresh_iv);
+        progress_bar = view.findViewById(R.id.progress_bar);
+
+        prefHandler = new SharedPrefHandler(activity);
+
+        fetchLocation = new FetchLocation(requireActivity()) {
+            @Override
+            public void gettingLocation() {
+                Log.d(TAG, "gettingLocation: ");
+
+                refresh_iv.setVisibility(GONE);
+                place_name_tv.setText("Refreshing...");
+                address_tv.setText("Refreshing...");
+                progress_bar.setVisibility(VISIBLE);
+
+            }
+
+            @Override
+            public void addressFetched(Address address) {
+                Log.d(TAG, "addressFetched: ");
+
+
+                String locality = address.getLocality();
+                String subLocality = address.getSubLocality();
+
+                prefHandler.setStringValue(SP_KEY_TEMP_USER_SUB_LOCALITY, subLocality);
+                prefHandler.setStringValue(SP_KEY_TEMP_USER_LOCALITY, locality);
+
+                place_name_tv.setText(subLocality);
+                address_tv.setText(locality);
+                place_name_tv.setVisibility(VISIBLE);
+                address_tv.setVisibility(VISIBLE);
+                progress_bar.setVisibility(GONE);
+                refresh_iv.setVisibility(VISIBLE);
+
+            }
+
+            @Override
+            public void permissionNotGranted() {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQ_CODE_LOCATION_PERMISSION);
+            }
+
+            @Override
+            public void gpsIsOff(LocationRequest locationRequest) {
+                HelperClass.turnOnGps(activity, locationRequest);
+            }
+        };
+
+        if (prefHandler.hasKey(SP_KEY_TEMP_USER_LOCALITY) && prefHandler.hasKey(SP_KEY_TEMP_USER_SUB_LOCALITY)) {
+            String address = prefHandler.getString(SP_KEY_TEMP_USER_LOCALITY);
+            String city = prefHandler.getString(SP_KEY_TEMP_USER_SUB_LOCALITY);
+
+            place_name_tv.setText(city);
+            address_tv.setText(address);
+
+        } else
+            fetchLocation();
+
+
+//        if (prefHandler.hasKey(SP_KEY_TEMP_USER_LOCALITY)) {
+//            String address = prefHandler.getString(SP_KEY_TEMP_USER_LOCALITY);
+//            String city = prefHandler.getString(SP_KEY_TEMP_USER_SUB_LOCALITY);
+//
+//            place_name_tv.setText(city);
+//            address_tv.setText(address);
+//        } else {
+////            location_tv.setVisibility(GONE);
+//            fetchLocation();
+//        }
+
+        refresh_iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fetchLocation();
+            }
+        });
+
+        save_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 validateForm();
             }
         });
@@ -148,78 +262,44 @@ public class AddAddressActivity extends AppCompatActivity implements Params {
         addressDatabase.addressDAO().insertAddress(addressModal);
 
         HelperClass.showToast(activity, "Address Added Successfully");
-        finish();
+        sheetDismissListner.setData();
+        dismiss();
+//        finish();
     }
 
     private void fetchLocation() {
-        Log.d(TAG, "fetchLocation: ");
-        fetchLocation = new FetchLocation(activity) {
-            @Override
-            public void gettingLocation() {
-                Log.d(TAG, "gettingLocation: ");
-
-                refresh_iv.setVisibility(GONE);
-                place_name_tv.setText("Refreshing...");
-                address_tv.setText("Refreshing...");
-                progress_bar.setVisibility(VISIBLE);
-
-            }
-
-            @Override
-            public void addressFetched(Address address) {
-                Log.d(TAG, "addressFetched: ");
-
-                String fullAddress = address.getLocality();
-                String city = address.getSubLocality();
-
-                prefHandler.setStringValue(SP_KEY_TEMP_USER_SUB_LOCALITY, city);
-                prefHandler.setStringValue(SP_KEY_TEMP_USER_LOCALITY, fullAddress);
-
-                place_name_tv.setText(city);
-                address_tv.setText(fullAddress);
-                place_name_tv.setVisibility(VISIBLE);
-                address_tv.setVisibility(VISIBLE);
-                progress_bar.setVisibility(GONE);
-                refresh_iv.setVisibility(VISIBLE);
-
-            }
-
-            @Override
-            public void permissionNotGranted() {
-                Log.d(TAG, "permissionNotGranted: ");
-                ActivityCompat.requestPermissions((Activity) activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 2);
-            }
-
-            @Override
-            public void gpsIsOff(LocationRequest locationRequest) {
-                HelperClass.turnOnGps(activity,locationRequest);
-            }
-//
-//            @Override
-//            public void gpsIsOff() {
-//                HelperClass.turnOnGps(activity, locationRequest);
-//            }
-        };
-
         fetchLocation.getLocation();
-
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQ_CODE_ENABLE_GPS) {
-            switch (resultCode) {
-                case Activity.RESULT_OK:
-                    fetchLocation.getLocation();
-                case Activity.RESULT_CANCELED:
-                    HelperClass.showToast(activity, "Please Turn On Gps");
-            }
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQ_CODE_LOCATION_PERMISSION) {
+
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                fetchLocation();
+            else
+                HelperClass.showToast(activity, "Permission is required");
         }
     }
 
-
     //    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == REQ_CODE_ENABLE_GPS) {
+//            switch (resultCode) {
+//                case Activity.RESULT_OK:
+//                    fetchLocation.getLocation();
+//                case Activity.RESULT_CANCELED:
+//                    HelperClass.showToast(activity, "Please Turn On Gps");
+//            }
+//        }
+//    }
+
+
+//        @Override
 //    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 //        if (requestCode == REQ_CODE_ENABLE_GPS) {
 //

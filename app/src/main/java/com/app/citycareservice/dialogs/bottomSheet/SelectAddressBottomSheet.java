@@ -13,13 +13,14 @@ import com.app.citycareservice.R;
 import com.app.citycareservice.activities.AddAddressActivity;
 import com.app.citycareservice.adapters.recycler_view.SelectAddressAdapter;
 import com.app.citycareservice.interfaces.click.AddressSelect;
+import com.app.citycareservice.interfaces.sheetDismissListner;
 import com.app.citycareservice.modals.AddressModal.AddressModal;
 import com.app.citycareservice.utils.Params;
 import com.app.citycareservice.utils.SharedPrefHandler;
 import com.app.citycareservice.utils.roomDB.AddressDatabase;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-public class SelectAddressBottomSheet extends BottomSheetDialog implements Params, AddressSelect {
+public class SelectAddressBottomSheet extends BottomSheetDialog implements Params, AddressSelect, sheetDismissListner {
 
     private static final String TAG = "AddAddressActivity";
     private final AppCompatActivity activity;
@@ -30,6 +31,8 @@ public class SelectAddressBottomSheet extends BottomSheetDialog implements Param
     private final AddressSelect addressSelect;
 
     private AddAddressActivity addAddressActivity;
+    private SelectAddressAdapter selectAddressAdapter;
+    private AddressDatabase addressDatabase;
 
     public SelectAddressBottomSheet(@NonNull Context context, AddressSelect addressSelect) {
         super(context);
@@ -46,12 +49,12 @@ public class SelectAddressBottomSheet extends BottomSheetDialog implements Param
         addresses_rv = findViewById(R.id.addresses_rv);
         add_address_iv = findViewById(R.id.add_address_iv);
 
-        SelectAddressAdapter selectAddressAdapter = new SelectAddressAdapter(this);
+        selectAddressAdapter = new SelectAddressAdapter(this);
         addresses_rv.setAdapter(selectAddressAdapter);
-        addAddressActivity = new AddAddressActivity();
+        addAddressActivity = new AddAddressActivity(this);
 
-        AddressDatabase addressDatabase = AddressDatabase.getInstance(activity);
-        selectAddressAdapter.setData(addressDatabase.addressDAO().getAddresses());
+        addressDatabase = AddressDatabase.getInstance(activity);
+        setData();
 
         add_address_iv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,5 +88,10 @@ public class SelectAddressBottomSheet extends BottomSheetDialog implements Param
         prefHandler.setIntValue(SP_KEY_LAST_USED_ADDRESS_ID, addressModal.getId());
         addressSelect.onClick(addressModal);
         dismiss();
+    }
+
+    @Override
+    public void setData() {
+        selectAddressAdapter.setData(addressDatabase.addressDAO().getAddresses());
     }
 }

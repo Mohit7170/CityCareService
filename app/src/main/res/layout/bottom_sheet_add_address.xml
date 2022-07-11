@@ -3,36 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="@dimen/_380sdp"
     android:layout_gravity="bottom"
     android:backgroundTint="@color/main_bg"
     tools:context=".activities.AddAddressActivity">
 
-    <!--    <View-->
-    <!--        android:id="@+id/view"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="@dimen/view_height_large"-->
-    <!--        android:layout_marginTop="@dimen/view_top_margin_large"-->
-    <!--        -->
-    <!--        android:background="@drawable/round_rectangle"-->
-    <!--        app:layout_constraintDimensionRatio="5"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/view_height_large"
+        android:layout_marginTop="@dimen/view_top_margin_large"
+        android:background="@drawable/round_rectangle"
+        app:layout_constraintDimensionRatio="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/place_name_tv"
         style="@style/tv.normal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_top_margin"
+        android:layout_marginTop="@dimen/view_top_margin_large"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="Village Sohana"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
         app:layout_constraintStart_toStartOf="@id/guide_start"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/view" />
 
     <TextView
         android:id="@+id/address_tv"
@@ -184,23 +183,23 @@
         android:id="@+id/view_2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/view_height_large"
-        android:layout_marginBottom="@dimen/view_bottom_margin_large"
+        android:layout_marginTop="@dimen/view_top_margin_large"
         android:background="@color/view_grey"
-        app:layout_constraintBottom_toTopOf="@+id/save_btn" />
+        app:layout_constraintTop_toBottomOf="@id/name_tif" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/save_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_bottom_margin"
+        android:layout_marginTop="@dimen/view_top_margin_normal"
         android:backgroundTint="@color/black"
         android:paddingVertical="@dimen/view_vertical_padding_normal"
         android:text="Save Address"
         android:textColor="@color/white"
         app:cornerRadius="@dimen/_8sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
-        app:layout_constraintStart_toStartOf="@id/guide_start" />
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintTop_toBottomOf="@id/view_2" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_start"

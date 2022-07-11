@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/circle.xml" value="0.2395" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2395" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.2025" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.2025" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/ic_baseline_keyboard_backspace_24.xml" value="0.2395" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.2395" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2395" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2025" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2025" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/rectangle.xml" value="0.2285" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/rectangle1.xml" value="0.2285" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/round_rectangle.xml" value="0.2285" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/drawable/text_view_with_bootom_view.xml" value="0.2285" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_add_detail.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_book_service.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_booking.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_edit_profile.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_feedback.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_login.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_main.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_main2.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_manage_address.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_scheduled.xml" value="0.2894399315946986" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_scheduled_services.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_search.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_serives.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_service_booking.xml" value="0.33" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_service_category.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_splash.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/activity_support.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/app_bar_main.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/app_bar_main2.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/bottom_sheer_add_address.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/bottom_sheet_add_address.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/bottom_sheet_add_new_address.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/bottom_sheet_booking.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/bottom_sheet_select_address.xml" value="0.33" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/content_main.xml" value="0.25" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/content_main2.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/dialog_custom_loader.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/frag_home.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/fragment_categories.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/fragment_history.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/fragment_settings.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/fragment_slideshow.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/item_container_addresses.xml" value="0.2557924003707136" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/item_container_all_services.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/item_container_diff_services.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/item_container_my_bookings.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/item_container_related_service.xml" value="0.33" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/item_container_search.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/item_container_select_addresses.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/item_container_serive_offer.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/item_container_service_date.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/item_container_service_detail.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/item_container_service_time.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/item_container_services.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/nav_content.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/layout/nav_header_main2.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/menu/activity_main_drawer.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/menu/bottom_nav_menu.xml" value="0.29717180244829045" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/menu/main_activity.xml" value="0.15433946130825138" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/menu/main_activity2.xml" value="0.3009833262077811" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/menu/popup_address_option_menu.xml" value="0.2557924003707136" />
+        <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/main/res/menu/side_menu.xml" value="0.5" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

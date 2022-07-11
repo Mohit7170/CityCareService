@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "562966938858",
+    "project_id": "citycareservice-eee1f",
+    "storage_bucket": "citycareservice-eee1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562966938858:android:2187b05b26167bb32fc393",
+        "android_client_info": {
+          "package_name": "com.app.citycareservice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562966938858-efitecamfh22lb62ttd68n1b07fnj7g6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.citycareservice",
+            "certificate_hash": "22d14614d2290da6309d147d6f27ab942287f213"
+          }
+        },
+        {
+          "client_id": "562966938858-o4urmql1n36i2t3avvmd07ibl1t4vq8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARikukqLx7nKO1LKQQdrebO9eqs8_Oz5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562966938858-o4urmql1n36i2t3avvmd07ibl1t4vq8i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

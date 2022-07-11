@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout_single_service"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="4dp"
+    android:background="@color/light_grey"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/activity_start_margin"
+    android:paddingBottom="@dimen/view_bottom_margin_large"
+    tools:context=".adapters.recycler_view.ServicesDetailAdapter">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/service_iv"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/view_top_margin_large"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundRectangleImageView"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/service_name_tv"
+        style="@style/tv.normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ac Gas Filling"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/service_iv" />
+
+    <TextView
+        android:id="@+id/service_price_tv"
+        style="@style/tv.small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_top_margin_normal"
+        android:text="₹ 499"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/service_name_tv"
+        app:layout_constraintTop_toBottomOf="@id/service_name_tv" />
+
+    <TextView
+        android:id="@+id/service_time_tv"
+        style="@style/tv.small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/view_start_margin_normal"
+        android:text="\u2022 45 min "
+        app:layout_constraintStart_toEndOf="@id/service_price_tv"
+        app:layout_constraintTop_toTopOf="@id/service_price_tv" />
+
+    <TextView
+        android:id="@+id/offer_tv"
+        style="@style/tv.mid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_top_margin_normal"
+        android:drawableStart="@drawable/ic_baseline_local_offer_24"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:text="30% off on second service"
+        app:layout_constraintStart_toStartOf="@id/service_price_tv"
+        app:layout_constraintTop_toBottomOf="@id/service_price_tv" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/offers_rv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/view_end_margin_normal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toStartOf="@id/service_iv"
+        app:layout_constraintStart_toStartOf="@id/offer_tv"
+        app:layout_constraintTop_toBottomOf="@id/offer_tv"
+        tools:itemCount="2"
+        tools:listitem="@layout/item_container_service_offer" />
+
+    <TextView
+        android:id="@+id/book_now_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_700"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:text="Book Now"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/service_iv"
+        app:layout_constraintEnd_toEndOf="@+id/service_iv"
+        app:layout_constraintStart_toStartOf="@+id/service_iv"
+        app:layout_constraintTop_toBottomOf="@+id/service_iv" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

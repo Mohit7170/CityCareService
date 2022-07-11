@@ -1,4 +1,4 @@
-package com.app.citycareservice.activities;
+package com.app.citycareservice.dialogs.bottomSheet;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -35,9 +35,9 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
-public class AddAddressActivity extends BottomSheetDialogFragment implements Params {
+public class AddAddressBottomSheet extends BottomSheetDialogFragment implements Params {
 
-    private static final String TAG = "AddAddressActivity";
+    private static final String TAG = "AddAddressBottomSheet";
     private Activity activity;
 
     private String id = DEFAULT_EMPTY_STRING;
@@ -57,7 +57,7 @@ public class AddAddressActivity extends BottomSheetDialogFragment implements Par
 
     private sheetDismissListner sheetDismissListner;
 
-    public AddAddressActivity(sheetDismissListner sheetDismissListner) {
+    public AddAddressBottomSheet(sheetDismissListner sheetDismissListner) {
         this.sheetDismissListner = sheetDismissListner;
     }
 
@@ -67,7 +67,7 @@ public class AddAddressActivity extends BottomSheetDialogFragment implements Par
         setContentView(R.layout.bottom_sheet_add_address);
 
         place_name_tv = findViewById(R.id.place_name_tv);
-        activity = AddAddressActivity.this;
+        activity = AddAddressBottomSheet.this;
 
         address_tv = findViewById(R.id.address_tv);
         house_no_tif = findViewById(R.id.house_no_tif);

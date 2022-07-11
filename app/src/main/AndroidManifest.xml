@@ -22,19 +22,19 @@
             android:name=".activities.BookServicesActivity"
             android:exported="true"
             android:theme="@style/blackActionBar">
-            <!--  <intent-filter>
+              <intent-filter>
 
                   <action android:name="android.intent.action.MAIN" />
 
                   <category android:name="android.intent.category.LAUNCHER" />
-              </intent-filter>-->
+              </intent-filter>
 
         </activity>
         <activity
             android:name=".SupportActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.AddAddressActivity"
+            android:name=".dialogs.bottomSheet.AddAddressBottomSheet"
             android:exported="false" />
         <activity
             android:name=".activities.FeedbackActivity"
@@ -64,11 +64,11 @@
             android:name=".activities.MainActivity"
             android:exported="true">
 
-            <intent-filter>
+        <!--    <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity
             android:name=".activities.AddDetailActivity"

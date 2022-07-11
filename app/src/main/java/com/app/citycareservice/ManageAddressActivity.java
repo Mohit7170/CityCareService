@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.citycareservice.activities.AddAddressActivity;
+import com.app.citycareservice.dialogs.bottomSheet.AddAddressBottomSheet;
 import com.app.citycareservice.adapters.recycler_view.settings.AddressAdpater;
 import com.app.citycareservice.interfaces.sheetDismissListner;
 import com.app.citycareservice.utils.roomDB.AddressDatabase;
@@ -46,12 +46,12 @@ public class ManageAddressActivity extends AppCompatActivity implements sheetDis
         add_address_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(activity,AddAddressActivity.class));
-                AddAddressActivity addAddressActivity = new AddAddressActivity(ManageAddressActivity.this);
-                addAddressActivity.show(getSupportFragmentManager(), "AddAddressBottomFrag");
+//                startActivity(new Intent(activity,AddAddressBottomSheet.class));
+                AddAddressBottomSheet addAddressBottomSheet = new AddAddressBottomSheet(ManageAddressActivity.this);
+                addAddressBottomSheet.show(getSupportFragmentManager(), "AddAddressBottomFrag");
 
-//                new AddAddressActivity().show(getSupportFragmentManager(), "AddAddressBottomFrag");
-//                new AddAddressActivity(activity).show();
+//                new AddAddressBottomSheet().show(getSupportFragmentManager(), "AddAddressBottomFrag");
+//                new AddAddressBottomSheet(activity).show();
             }
         });
 

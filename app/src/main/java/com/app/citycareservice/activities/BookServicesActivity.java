@@ -3,6 +3,7 @@ package com.app.citycareservice.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +33,7 @@ import com.google.android.material.button.MaterialButton;
 
 import java.net.HttpURLConnection;
 import java.text.ParseException;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -115,11 +117,22 @@ public class BookServicesActivity extends AppCompatActivity implements Params, A
 //        time_to_finish = intent.getStringExtra(INTENT_KEY_TIME_TO_FINISH");
 //        serviceId = intent.getStringExtra(INTENT_KEY_SERVICE_ID");
         time_to_finish = "45";
+        HelperClass.showLoader(activity);
 
         service_time_tv.setText("Your Service take aproxx. ".concat(time_to_finish).concat(" mins."));
 
         date_rv.setAdapter(selectDateAdapter);
         time_rv.setAdapter(selectTimeAdapter);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//                TODO change this way
+                Objects.requireNonNull(date_rv.findViewHolderForAdapterPosition(2)).itemView.performClick();
+                Objects.requireNonNull(time_rv.findViewHolderForAdapterPosition(4)).itemView.performClick();
+                HelperClass.hideLoader();
+            }
+        }, 1000);
 
         book_btn.setOnClickListener(new View.OnClickListener() {
             @Override

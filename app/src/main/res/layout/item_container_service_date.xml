@@ -8,6 +8,7 @@
     android:layout_marginEnd="@dimen/view_end_margin_large"
     app:cardBackgroundColor="@color/light_grey"
     app:cardCornerRadius="@dimen/_4sdp"
+    app:cardElevation="0dp"
     tools:context=".adapters.recycler_view.SelectDateAdapter">
 
     <LinearLayout

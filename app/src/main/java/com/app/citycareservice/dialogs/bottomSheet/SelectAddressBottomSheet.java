@@ -1,7 +1,6 @@
 package com.app.citycareservice.dialogs.bottomSheet;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -10,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.citycareservice.R;
-import com.app.citycareservice.activities.AddAddressActivity;
 import com.app.citycareservice.adapters.recycler_view.SelectAddressAdapter;
 import com.app.citycareservice.interfaces.click.AddressSelect;
 import com.app.citycareservice.interfaces.sheetDismissListner;
@@ -22,7 +20,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 public class SelectAddressBottomSheet extends BottomSheetDialog implements Params, AddressSelect, sheetDismissListner {
 
-    private static final String TAG = "AddAddressActivity";
+    private static final String TAG = "AddAddressBottomSheet";
     private final AppCompatActivity activity;
 
     private ImageView add_address_iv;
@@ -30,7 +28,7 @@ public class SelectAddressBottomSheet extends BottomSheetDialog implements Param
 
     private final AddressSelect addressSelect;
 
-    private AddAddressActivity addAddressActivity;
+    private AddAddressBottomSheet addAddressBottomSheet;
     private SelectAddressAdapter selectAddressAdapter;
     private AddressDatabase addressDatabase;
 
@@ -51,7 +49,7 @@ public class SelectAddressBottomSheet extends BottomSheetDialog implements Param
 
         selectAddressAdapter = new SelectAddressAdapter(this);
         addresses_rv.setAdapter(selectAddressAdapter);
-        addAddressActivity = new AddAddressActivity(this);
+        addAddressBottomSheet = new AddAddressBottomSheet(this);
 
         addressDatabase = AddressDatabase.getInstance(activity);
         setData();
@@ -59,13 +57,12 @@ public class SelectAddressBottomSheet extends BottomSheetDialog implements Param
         add_address_iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.startActivity(new Intent(activity, AddAddressActivity.class));
-                dismiss();
-//                addAddressActivity.show(activity.getSupportFragmentManager(), "ppp");
+                new AddAddressBottomSheet(SelectAddressBottomSheet.this).show(activity.getSupportFragmentManager(), "SelectAddressBottomSheet");
+//                dismiss();
             }
         });
 
-//        addAddressActivity.setOnDismissListener(new OnDismissListener() {
+//        addAddressBottomSheet.setOnDismissListener(new OnDismissListener() {
 //            @Override
 //            public void onDismiss(DialogInterface dialog) {
 //                selectAddressAdapter.setData(addressDatabase.addressDAO().getAddresses());

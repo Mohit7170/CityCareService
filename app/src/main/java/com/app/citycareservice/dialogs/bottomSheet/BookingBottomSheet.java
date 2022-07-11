@@ -22,7 +22,7 @@ import java.util.Objects;
 
 public class BookingBottomSheet extends BottomSheetDialog implements Params {
 
-    private static final String TAG = "AddAddressActivity";
+    private static final String TAG = "AddAddressBottomSheet";
     private Activity activity;
 
     private String id = DEFAULT_EMPTY_STRING;

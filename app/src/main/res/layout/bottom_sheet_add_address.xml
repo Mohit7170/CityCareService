@@ -6,7 +6,7 @@
     android:layout_height="@dimen/_380sdp"
     android:layout_gravity="bottom"
     android:backgroundTint="@color/main_bg"
-    tools:context=".activities.AddAddressActivity">
+    tools:context=".dialogs.bottomSheet.AddAddressBottomSheet">
 
     <View
         android:id="@+id/view"

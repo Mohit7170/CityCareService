@@ -46,9 +46,9 @@ public class SelectAddressAdapter extends RecyclerView.Adapter<SelectAddressAdap
 
         holder.address_type_tv.setText(addressModal.getName());
 
-        String fullAddress = addressModal.getName().concat(" , ")
-                .concat(addressModal.getHouseNo()).concat(" , ")
+        String fullAddress = addressModal.getHouseNo().concat(" , ")
                 .concat(addressModal.getLandmark()).concat(" , ")
+                .concat(addressModal.getPlace()).concat(" , ")
                 .concat(addressModal.getAddress());
 
         holder.address_tv.setText(fullAddress);

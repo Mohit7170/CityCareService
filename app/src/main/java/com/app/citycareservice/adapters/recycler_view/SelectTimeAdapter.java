@@ -28,7 +28,9 @@ public class SelectTimeAdapter extends RecyclerView.Adapter<SelectTimeAdapter.Vi
     private final SimpleDateFormat sdf = new SimpleDateFormat("hh:mm aa");
     private final Calendar calendar = Calendar.getInstance();
     private final TimeSelect timeSelect;
-    int selected_position = 0; // You have to set this globally in the Adapter class
+
+    private int selected_position = 0;
+    private boolean isClicked = false;
 
     public SelectTimeAdapter(Activity activity, TimeSelect timeSelect) throws ParseException {
         this.activity = activity;
@@ -49,7 +51,7 @@ public class SelectTimeAdapter extends RecyclerView.Adapter<SelectTimeAdapter.Vi
         calendar.add(Calendar.MINUTE, position * 30);
         holder.time_tv.setText(sdf.format(calendar.getTime()));
 
-        int color = selected_position == holder.getAdapterPosition() ? R.color.purple_200_10 : R.color.light_grey;
+        int color = selected_position == holder.getAdapterPosition() ? R.color.purple_200_40 : R.color.light_grey;
         holder.main_layout_single_time.setCardBackgroundColor(ContextCompat.getColor(activity, color));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +76,10 @@ public class SelectTimeAdapter extends RecyclerView.Adapter<SelectTimeAdapter.Vi
             }
         });
 
+//        if (!isClicked && position == 2) {
+//            holder.itemView.performClick();
+//            isClicked = true;
+//        }
 
     }
 

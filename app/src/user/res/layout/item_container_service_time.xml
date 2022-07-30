@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout_single_time"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/view_horizontal_margin_normal"
+    android:layout_marginVertical="@dimen/view_vertical_margin_large"
+    app:cardBackgroundColor="@color/light_grey"
+    app:cardCornerRadius="@dimen/_4sdp"
+    app:cardElevation="0dp"
+    tools:context=".adapters.recycler_view.SelectTimeAdapter">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_15sdp"
+        android:paddingVertical="@dimen/_10sdp">
+
+        <TextView
+            android:id="@+id/time_tv"
+            style="@style/tv.normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="08:00 AM"
+            android:textAllCaps="true" />
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

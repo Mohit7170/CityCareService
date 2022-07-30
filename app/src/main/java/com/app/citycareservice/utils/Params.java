@@ -2,7 +2,6 @@ package com.app.citycareservice.utils;
 
 public interface Params {
 
-
     long ONE_SEC_IN_MILLS = 1000;
     int RESEND_OTP_TIME = 30;
     int MAX_PHONE_NUM_LENGTH = 10;
@@ -17,7 +16,7 @@ public interface Params {
     String INTENT_KEY_SERVICE_CATEGORY_ID = "serviceCategory";
     String DEFAULT_EMPTY_STRING = "-";
     //    String API_BASE_URL = "https://www.citycareservice.com";
-    String API_BASE_URL = "http://192.168.64.19:5000";
+    String API_BASE_URL = "http://sarkarinokar.com:3000/api/v1/";
 
 
     //Shared Pref Keys

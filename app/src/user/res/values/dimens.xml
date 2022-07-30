@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="text_size_heading">@dimen/_22ssp</dimen>
+    <dimen name="text_size_xtra_large">@dimen/_20ssp</dimen>
+    <dimen name="text_size_large">@dimen/_16ssp</dimen>
+    <dimen name="text_size_normal">@dimen/_14ssp</dimen>
+    <dimen name="text_size_mid">@dimen/_12ssp</dimen>
+    <dimen name="text_size_small">@dimen/_10ssp</dimen>
+    <dimen name="text_size_xtra_small">@dimen/_9ssp</dimen>
+
+    <dimen name="view_top_margin_small">@dimen/_2sdp</dimen>
+    <dimen name="view_top_margin_normal">@dimen/_4sdp</dimen>
+    <dimen name="view_top_margin_large">@dimen/_12sdp</dimen>
+    <dimen name="view_top_margin_x_large">@dimen/_18sdp</dimen>
+
+    <dimen name="view_vertical_padding_normal">@dimen/_12sdp</dimen>
+
+    <dimen name="view_horizontal_margin_normal">@dimen/_4sdp</dimen>
+    <dimen name="view_horizontal_margin_large">@dimen/_8sdp</dimen>
+
+    <dimen name="view_normal_margin">@dimen/_4sdp</dimen>
+
+    <dimen name="view_vertical_margin_normal">@dimen/_4sdp</dimen>
+    <dimen name="view_vertical_margin_large">@dimen/_8sdp</dimen>
+
+    <dimen name="view_start_margin_small">@dimen/_2sdp</dimen>
+    <dimen name="view_start_margin_normal">@dimen/_4sdp</dimen>
+    <dimen name="view_start_margin_large">@dimen/_8sdp</dimen>
+
+    <dimen name="view_bottom_margin_large">@dimen/_8sdp</dimen>
+
+    <dimen name="view_end_margin_normal">@dimen/_4sdp</dimen>
+    <dimen name="view_end_margin_large">@dimen/_8sdp</dimen>
+
+    <dimen name="view_height_normal">2dp</dimen>
+
+    <dimen name="activity_top_margin">@dimen/_10sdp</dimen>
+    <dimen name="activity_bottom_margin">@dimen/_10sdp</dimen>
+    <dimen name="activity_start_margin">@dimen/_10sdp</dimen>
+    <dimen name="activity_end_margin">@dimen/_10sdp</dimen>
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="view_height_large">8dp</dimen>
+</resources>

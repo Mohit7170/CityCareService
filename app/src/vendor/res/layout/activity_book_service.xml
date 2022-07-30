@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.BookServicesActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/profile_tv"
+            style="@style/tv.xtralarge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-2dp"
+            android:background="@color/black"
+            android:drawablePadding="@dimen/_8sdp"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/view_vertical_padding_normal"
+            android:paddingStart="@dimen/activity_start_margin"
+            android:text="Book Now"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/back_iv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/back_iv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/black"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_baseline_keyboard_backspace_24"
+            app:layout_constraintBottom_toBottomOf="@id/profile_tv"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile_tv"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/address_type_tv"
+            style="@style/tv.normal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_top_margin_x_large"
+            android:text="Service Address"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/profile_tv" />
+
+        <TextView
+            android:id="@+id/address_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_top_margin_normal"
+            android:ellipsize="end"
+            android:paddingVertical="@dimen/_4sdp"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/address_type_tv"
+            tools:text="@tools:sample/cities" />
+
+        <TextView
+            android:id="@+id/change_address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_top_margin_normal"
+            android:text="change"
+            android:textColor="@color/purple_700"
+            app:layout_constraintBottom_toBottomOf="@id/address_tv"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintTop_toTopOf="@id/address_type_tv" />
+
+        <View
+            android:id="@+id/address_veiw"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/view_height_normal"
+            android:layout_marginTop="@dimen/view_top_margin_large"
+            android:background="@color/view_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/address_tv" />
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/tv.normal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_top_margin_x_large"
+            android:text="Select Date of Service"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/address_veiw" />
+
+        <TextView
+            android:id="@+id/service_time_tv"
+            style="@style/tv.small"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_top_margin_normal"
+            android:text="Your Service will take approx. 45 mins."
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/date" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/date_rv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_top_margin_x_large"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/service_time_tv"
+            tools:itemCount="7"
+            tools:listitem="@layout/item_container_service_date" />
+
+        <TextView
+            android:id="@+id/time"
+            style="@style/tv.normal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_top_margin_x_large"
+            android:text="Time to start the service"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/date_rv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/time_rv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/time"
+            app:spanCount="3"
+            tools:itemCount="9"
+            tools:listitem="@layout/item_container_service_time" />
+
+        <View
+            android:id="@+id/bottom_view"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/view_height_large"
+            android:layout_marginTop="@dimen/view_top_margin_x_large"
+            android:background="@color/view_grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/time_rv" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/book_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_top_margin_large"
+            android:paddingVertical="@dimen/view_vertical_padding_normal"
+            android:text="Book Now"
+            app:cornerRadius="@dimen/_4sdp"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintTop_toBottomOf="@id/bottom_view" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/activity_start_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/activity_end_margin" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

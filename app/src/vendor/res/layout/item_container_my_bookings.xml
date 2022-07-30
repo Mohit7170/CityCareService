@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout_single_service"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="4dp"
+    android:background="#f1f1f1"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/view_bottom_margin_large"
+    tools:context=".adapters.recycler_view.BookingHistoryAdapter">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/user_iv"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="@dimen/view_start_margin_normal"
+        android:layout_marginTop="@dimen/view_top_margin_normal"
+        android:layout_marginEnd="@dimen/view_end_margin_normal"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedImageView"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/user_name"
+        style="@style/tv.small"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="2"
+        app:layout_constraintEnd_toEndOf="@id/user_iv"
+        app:layout_constraintStart_toStartOf="@id/user_iv"
+        app:layout_constraintTop_toBottomOf="@id/user_iv"
+        tools:text="@tools:sample/full_names" />
+
+    <TextView
+        android:id="@+id/service_name_tv"
+        style="@style/tv.normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/view_start_margin_normal"
+        android:text="Ac Gas Filling"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/user_iv"
+        app:layout_constraintTop_toTopOf="@id/user_iv" />
+
+    <TextView
+        android:id="@+id/service_date_tv"
+        style="@style/tv.small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/view_start_margin_normal"
+        android:layout_marginTop="@dimen/view_top_margin_small"
+        android:text="22-02-2022"
+        app:layout_constraintStart_toEndOf="@id/user_iv"
+        app:layout_constraintTop_toBottomOf="@id/service_name_tv" />
+
+    <TextView
+        android:id="@+id/service_time_tv"
+        style="@style/tv.small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/view_start_margin_normal"
+        android:text="\u2022 1 p.m. "
+        app:layout_constraintStart_toEndOf="@id/service_date_tv"
+        app:layout_constraintTop_toTopOf="@id/service_date_tv" />
+
+    <RatingBar
+        android:id="@+id/rating_bar"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_top_margin_normal"
+        android:max="5"
+        android:numStars="5"
+        android:progress="2"
+        app:layout_constraintStart_toStartOf="@id/service_date_tv"
+        app:layout_constraintTop_toBottomOf="@id/service_time_tv" />
+
+    <TextView
+        android:id="@+id/service_price_tv"
+        style="@style/tv.normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/view_end_margin_large"
+        android:text="₹ 499/-"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rating" />
+
+    <TextView
+        android:id="@+id/rating"
+        style="@style/tv.normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_top_margin_normal"
+        android:text="Review :-"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/user_name"
+        app:layout_constraintTop_toBottomOf="@id/user_name" />
+
+    <TextView
+        android:id="@+id/review_tv"
+        style="@style/tv.small"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_top_margin_small"
+        android:layout_marginEnd="@dimen/view_end_margin_large"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/rating"
+        app:layout_constraintTop_toBottomOf="@id/rating"
+        tools:maxLines="2"
+        tools:text="@tools:sample/lorem/random" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.LoginActivity">
+
+    <TextView
+        android:id="@+id/top_tv"
+        style="@style/tv.xtralarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_150sdp"
+        android:text="Join us via Phone Number"
+        app:layout_constraintBottom_toTopOf="@+id/phone_et"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24000001"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/phone_tv"
+        style="@style/tv.normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+91"
+        app:layout_constraintBottom_toBottomOf="@id/phone_et"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintTop_toTopOf="@id/phone_et" />
+
+    <EditText
+        android:id="@+id/phone_et"
+        style="@style/et.normal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_top_margin_large"
+        android:backgroundTint="@color/white"
+        android:hint="Enter your Phone Number"
+        android:inputType="phone"
+        android:maxLength="10"
+        app:layout_constraintBottom_toTopOf="@+id/next_btn"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintStart_toEndOf="@+id/phone_tv"
+        app:layout_constraintTop_toBottomOf="@+id/top_tv" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/view_height_normal"
+        android:background="@color/view_grey"
+        app:layout_constraintEnd_toEndOf="@id/phone_et"
+        app:layout_constraintStart_toStartOf="@id/phone_et"
+        app:layout_constraintTop_toBottomOf="@id/phone_et" />
+
+    <EditText
+        android:id="@+id/code_et"
+        style="@style/et.normal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_top_margin_large"
+        android:backgroundTint="@color/white"
+        android:hint="Enter Otp"
+        android:inputType="number"
+        android:maxLength="6"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintTop_toBottomOf="@+id/phone_et" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/view_height_normal"
+        android:background="@color/view_grey"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/code_et"
+        app:layout_constraintStart_toStartOf="@id/code_et"
+        app:layout_constraintTop_toBottomOf="@id/code_et" />
+
+    <TextView
+        android:id="@+id/resend_tv"
+        style="@style/tv.normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_top_margin_large"
+        android:text="Resend Otp after 14 second"
+        android:textColor="@color/font_grey"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintTop_toBottomOf="@id/code_et" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/next_btn"
+        style="@style/btn_style.large"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_start_margin"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="@dimen/activity_end_margin"
+        android:text="Next"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintTop_toBottomOf="@+id/phone_et" />
+
+    <TextView
+        android:id="@+id/terms_tv"
+        style="@style/tv.xtrasmall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_bottom_margin"
+        android:gravity="center"
+        android:text="@string/terms_text"
+        android:textColor="@color/font_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintStart_toStartOf="@id/guide_start" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/activity_start_margin" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/activity_end_margin" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

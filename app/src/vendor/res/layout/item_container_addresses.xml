@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/view_top_margin_large"
+    tools:context=".adapters.recycler_view.AddressAdpater">
+
+    <TextView
+        android:id="@+id/address_type_tv"
+        style="@style/tv.normal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/address_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_top_margin_normal"
+        android:ellipsize="end"
+        android:maxLines="2"
+        app:layout_constraintEnd_toStartOf="@id/options_iv"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintTop_toBottomOf="@id/address_type_tv"
+        tools:text="@tools:sample/cities" />
+
+    <ImageView
+        android:id="@+id/options_iv"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/view_top_margin_normal"
+        android:src="@drawable/ic_baseline_delete_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintTop_toTopOf="@id/address_type_tv" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/view_height_normal"
+        android:layout_marginTop="@dimen/view_top_margin_large"
+        android:background="@color/view_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/address_tv" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/activity_start_margin" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/activity_end_margin" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

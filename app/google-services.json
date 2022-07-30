@@ -41,6 +41,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562966938858:android:c13fb372e31c9cfc2fc393",
+        "android_client_info": {
+          "package_name": "com.app.citycareservice.vendor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562966938858-o4urmql1n36i2t3avvmd07ibl1t4vq8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARikukqLx7nKO1LKQQdrebO9eqs8_Oz5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562966938858-o4urmql1n36i2t3avvmd07ibl1t4vq8i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

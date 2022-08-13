@@ -72,10 +72,11 @@
         <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/user/res/layout/activity_add_detail.xml" value="0.3009833262077811" />
         <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/user/res/menu/side_menu.xml" value="0.3009833262077811" />
         <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/vendor/res/menu/side_menu.xml" value="0.3009833262077811" />
+        <entry key="app/src/main/res/layout/fragment_history.xml" value="0.1983695652173913" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -12,7 +12,7 @@ public interface Params {
     int REQ_CODE_LOCATION_PERMISSION = 10003;
 
 
-    String SHARED_PREF_NAME = "CItyCareServicesSharedPref";
+    String SHARED_PREF_NAME = "CCSharedPref";
     String INTENT_KEY_SERVICE_CATEGORY_ID = "serviceCategory";
     String DEFAULT_EMPTY_STRING = "-";
     //    String API_BASE_URL = "https://www.citycareservice.com";

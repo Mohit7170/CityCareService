@@ -23,7 +23,7 @@ import com.app.citycareservice.interfaces.click.DateSelect;
 import com.app.citycareservice.interfaces.click.TimeSelect;
 import com.app.citycareservice.interfaces.order.Service;
 import com.app.citycareservice.modals.AddressModal.AddressModal;
-import com.app.citycareservice.modals.search.service.SearchServiceResponse;
+import com.app.citycareservice.modals.order.CreateOrderResponse;
 import com.app.citycareservice.utils.ApiClient;
 import com.app.citycareservice.utils.HelperClass;
 import com.app.citycareservice.utils.Params;
@@ -171,17 +171,17 @@ public class BookServicesActivity extends AppCompatActivity implements Params, A
             SharedPrefHandler prefHandler = new SharedPrefHandler(activity);
 
             Service api = ApiClient.apiService(activity).create(Service.class);
-            Call<SearchServiceResponse> call = api.createOrder(prefHandler.getString(SP_KEY_AUTH_TOKEN), prefHandler.getString(SP_KEY_USER_ID), serviceId, selectDate, selectTime, DEFAULT_EMPTY_STRING, selectAddress);
-            call.enqueue(new Callback<SearchServiceResponse>() {
+            Call<CreateOrderResponse> call = api.createOrder(prefHandler.getString(SP_KEY_AUTH_TOKEN), prefHandler.getString(SP_KEY_USER_ID), serviceId, selectDate, selectTime, DEFAULT_EMPTY_STRING, selectAddress);
+            call.enqueue(new Callback<CreateOrderResponse>() {
                 @Override
-                public void onResponse(@NonNull Call<SearchServiceResponse> call, @NonNull Response<SearchServiceResponse> response) {
+                public void onResponse(@NonNull Call<CreateOrderResponse> call, @NonNull Response<CreateOrderResponse> response) {
 
                     if (response.code() == HttpURLConnection.HTTP_UNAUTHORIZED) {
                         //Token Expired
                         HelperClass.logout(activity, true);
                         return;
                     }
-                    SearchServiceResponse apiResponse = response.body();
+                    CreateOrderResponse apiResponse = response.body();
 
                     if (response.code() == HttpURLConnection.HTTP_OK && apiResponse != null) {
 
@@ -196,7 +196,7 @@ public class BookServicesActivity extends AppCompatActivity implements Params, A
 
                 @Override
                 public void onFailure
-                        (@NonNull Call<SearchServiceResponse> call, @NonNull Throwable t) {
+                        (@NonNull Call<CreateOrderResponse> call, @NonNull Throwable t) {
                     Log.d(TAG, "onFailure: Error is -- " + t);
                     HelperClass.hideLoader();
                     HelperClass.showToast(activity, activity.getString(R.string.something_went_wrong));

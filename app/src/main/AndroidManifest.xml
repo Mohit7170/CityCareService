@@ -16,13 +16,15 @@
         android:theme="@style/Theme.CityCareService"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Test"
+            android:exported="false" />
+        <activity
             android:name=".ServiceBooking"
             android:exported="false" />
         <activity
             android:name=".activities.BookServicesActivity"
             android:exported="true"
-            android:theme="@style/blackActionBar">
-        </activity>
+            android:theme="@style/blackActionBar"></activity>
         <activity
             android:name=".SupportActivity"
             android:exported="false" />
@@ -43,22 +45,24 @@
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true">
-                        <intent-filter>
-                            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                            <category android:name="android.intent.category.LAUNCHER" />
-                        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">
 
-<!--            <intent-filter>-->
+            <!-- <intent-filter> -->
 
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".activities.AddDetailActivity"
@@ -73,11 +77,12 @@
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
 
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
 
         <service

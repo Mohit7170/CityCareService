@@ -27,7 +27,7 @@ import androidx.core.content.ContextCompat;
 
 import com.app.citycareservice.BuildConfig;
 import com.app.citycareservice.R;
-import com.app.citycareservice.activities.LoginActivity;
+import com.app.citycareservice.activities.authentication.LoginActivity;
 import com.app.citycareservice.dialogs.CustomLoader;
 import com.app.citycareservice.interfaces.ButtonPressListener;
 import com.bumptech.glide.Glide;

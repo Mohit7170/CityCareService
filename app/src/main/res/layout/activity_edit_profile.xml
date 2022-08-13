@@ -55,6 +55,7 @@
         app:layout_constraintTop_toBottomOf="@id/profile_tv">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_tef"
             style="@style/et.normal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,6 +85,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             style="@style/et.normal"
+            android:id="@+id/email_tef"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPostalAddress|textCapWords"
@@ -114,6 +116,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             style="@style/et.normal"
+            android:id="@+id/phone_tef"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="false"

@@ -72,8 +72,12 @@
         <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/user/res/layout/activity_add_detail.xml" value="0.3009833262077811" />
         <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/user/res/menu/side_menu.xml" value="0.3009833262077811" />
         <entry key="..\:/Users/mohit/AndroidStudioProjects/Clients/CityCareService/app/src/vendor/res/menu/side_menu.xml" value="0.3009833262077811" />
+        <entry key="app/src/main/res/layout/activity_add_detail.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/activity_book_service.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/activity_manage_address.xml" value="0.29243266353142366" />
+        <entry key="app/src/main/res/layout/activity_scheduled_services.xml" value="0.29243266353142366" />
+        <entry key="app/src/main/res/layout/activity_serives.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/activity_service_category.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.25815217391304346" />
         <entry key="app/src/main/res/layout/bottom_sheet_booking.xml" value="0.29243266353142366" />

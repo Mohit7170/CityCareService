@@ -89,6 +89,9 @@ public class UpdateProfileService extends IntentService implements Params {
             if (bundle.containsKey(BUNDLE_KEY_USER_LAST_NAME))
                 last_name = RequestBody.create(MediaType.parse("text/plain"), bundle.getString(BUNDLE_KEY_USER_LAST_NAME));
 
+//            if (bundle.containsKey(BUNDLE_KEY_USER_FULL_NAME))
+//                last_name = RequestBody.create(MediaType.parse("text/plain"), bundle.getString(BUNDLE_KEY_USER_LAST_NAME));
+
             Authentication social = ApiClient.apiService(context).create(Authentication.class);
             Call<UpdateProfileResponse> call = social.updateProfile(sharedPrefHandler.getString(SP_KEY_AUTH_TOKEN),  first_name, last_name, user_email, profile_pic);
             call.enqueue(new Callback<UpdateProfileResponse>() {

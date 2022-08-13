@@ -1,4 +1,4 @@
-package com.app.citycareservice.dialogs.bottomSheet;
+package com.app.citycareservice.ui.dialogs.bottomSheet;
 
 import android.content.Context;
 import android.view.View;

@@ -19,31 +19,31 @@
             android:name=".Test"
             android:exported="false" />
         <activity
-            android:name=".ServiceBooking"
+            android:name="com.app.citycareservice.ui.activities.service.ServiceBooking"
             android:exported="false" />
         <activity
-            android:name=".activities.BookServicesActivity"
+            android:name="com.app.citycareservice.ui.activities.service.BookServicesActivity"
             android:exported="true"
             android:theme="@style/blackActionBar"></activity>
         <activity
-            android:name=".SupportActivity"
+            android:name="com.app.citycareservice.ui.activities.settings.SupportActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.FeedbackActivity"
+            android:name="com.app.citycareservice.ui.activities.settings.FeedbackActivity"
             android:exported="false" />
         <activity
-            android:name=".ScheduledBookingsActivity"
+            android:name="com.app.citycareservice.ui.activities.settings.ScheduledBookingsActivity"
             android:exported="false" />
         <activity
-            android:name=".EditProfileActivity"
+            android:name="com.app.citycareservice.ui.activities.authentication.EditProfileActivity"
             android:exported="false"
             android:theme="@style/blackActionBar" />
         <activity
-            android:name=".ManageAddressActivity"
+            android:name="com.app.citycareservice.ui.activities.settings.ManageAddressActivity"
             android:exported="false"
             android:theme="@style/whiteActionBar" />
         <activity
-            android:name=".activities.SplashActivity"
+            android:name="com.app.citycareservice.ui.activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,7 +52,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.app.citycareservice.ui.activities.MainActivity"
             android:exported="true">
 
             <!-- <intent-filter> -->
@@ -65,19 +65,19 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".activities.AddDetailActivity"
+            android:name="com.app.citycareservice.ui.activities.authentication.AddDetailActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activities.SearchActivity"
+            android:name="com.app.citycareservice.ui.activities.service.SearchActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activities.ServiceCategoryActivity"
+            android:name="com.app.citycareservice.ui.activities.service.ServiceCategoryActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activities.authentication.LoginActivity"
+            android:name="com.app.citycareservice.ui.activities.authentication.LoginActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
 

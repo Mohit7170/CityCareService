@@ -1,4 +1,4 @@
-package com.app.citycareservice.fragments;
+package com.app.citycareservice.ui.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;

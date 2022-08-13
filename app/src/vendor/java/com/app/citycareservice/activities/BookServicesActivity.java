@@ -1,4 +1,4 @@
-package com.app.citycareservice.activities;
+package com.app.citycareservice.ui.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.app.citycareservice.R;
 import com.app.citycareservice.adapters.recycler_view.SelectDateAdapter;
 import com.app.citycareservice.adapters.recycler_view.SelectTimeAdapter;
-import com.app.citycareservice.dialogs.bottomSheet.SelectAddressBottomSheet;
+import com.app.citycareservice.ui.dialogs.bottomSheet.SelectAddressBottomSheet;
 import com.app.citycareservice.interfaces.click.AddressSelect;
 import com.app.citycareservice.interfaces.click.DateSelect;
 import com.app.citycareservice.interfaces.click.TimeSelect;

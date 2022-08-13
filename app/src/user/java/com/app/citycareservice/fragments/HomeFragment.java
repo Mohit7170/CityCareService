@@ -1,4 +1,4 @@
-package com.app.citycareservice.fragments;
+package com.app.citycareservice.ui.fragments;
 
 import android.Manifest;
 import android.app.Activity;
@@ -20,7 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.citycareservice.R;
-import com.app.citycareservice.activities.SearchActivity;
+import com.app.citycareservice.ui.activities.SearchActivity;
 import com.app.citycareservice.adapters.recycler_view.ServicesAdapter;
 import com.app.citycareservice.interfaces.api.Authentication;
 import com.app.citycareservice.modals.search.service.SearchServiceResponse;

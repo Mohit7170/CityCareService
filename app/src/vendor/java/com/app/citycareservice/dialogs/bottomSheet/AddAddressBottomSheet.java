@@ -1,4 +1,4 @@
-package com.app.citycareservice.dialogs.bottomSheet;
+package com.app.citycareservice.ui.dialogs.bottomSheet;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;

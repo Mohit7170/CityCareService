@@ -1,4 +1,4 @@
-package com.app.citycareservice.fragments;
+package com.app.citycareservice.ui.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import com.app.citycareservice.ManageAddressActivity;
 import com.app.citycareservice.R;
 import com.app.citycareservice.ScheduledBookingsActivity;
 import com.app.citycareservice.SupportActivity;
-import com.app.citycareservice.activities.FeedbackActivity;
+import com.app.citycareservice.ui.activities.FeedbackActivity;
 import com.app.citycareservice.utils.HelperClass;
 import com.app.citycareservice.utils.Params;
 import com.app.citycareservice.utils.SharedPrefHandler;

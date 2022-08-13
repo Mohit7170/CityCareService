@@ -5,7 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.app.citycareservice.activities.ServiceCategoryActivity
+import com.app.citycareservice.ui.activities.service.ServiceCategoryActivity
 import com.app.citycareservice.databinding.ItemContainerDiffServicesBinding
 import com.app.citycareservice.modals.allService.Result
 import com.app.citycareservice.utils.Params

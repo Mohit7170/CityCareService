@@ -1,4 +1,4 @@
-package com.app.citycareservice.dialogs;
+package com.app.citycareservice.ui.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;

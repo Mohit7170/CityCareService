@@ -76,6 +76,7 @@ public interface Params {
     String BUNDLE_KEY_USER_ID = "user_id";
     String BUNDLE_KEY_USER_FIRST_NAME = "first_name";
     String BUNDLE_KEY_USER_LAST_NAME = "last_name";
+    String BUNDLE_KEY_USER_FULL_NAME = "full_name";
     String BUNDLE_KEY_USER_EMAIL = "user_email";
     String BUNDLE_KEY_USER_ADDRESS = "user_address";
     String BUNDLE_KEY_USER_PHONE = "user_phone";

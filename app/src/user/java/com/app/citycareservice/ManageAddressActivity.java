@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.citycareservice.dialogs.bottomSheet.AddAddressBottomSheet;
+import com.app.citycareservice.ui.dialogs.bottomSheet.AddAddressBottomSheet;
 import com.app.citycareservice.adapters.recycler_view.settings.AddressAdpater;
 import com.app.citycareservice.interfaces.sheetDismissListner;
 import com.app.citycareservice.utils.roomDB.AddressDatabase;

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.citycareservice.R;
-import com.app.citycareservice.activities.ServiceCategoryActivity;
+import com.app.citycareservice.ui.activities.ServiceCategoryActivity;
 import com.app.citycareservice.modals.ServiceCategoryModal;
 import com.app.citycareservice.utils.Params;
 

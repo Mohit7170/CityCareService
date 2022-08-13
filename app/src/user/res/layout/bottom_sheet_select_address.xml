@@ -7,7 +7,7 @@
     android:layout_gravity="bottom"
     android:backgroundTint="@color/main_bg"
     android:orientation="vertical"
-    tools:context=".dialogs.bottomSheet.SelectAddressBottomSheet">
+    tools:context=".ui.dialogs.bottomSheet.SelectAddressBottomSheet">
 
     <TextView
         android:id="@+id/select_address_tv"

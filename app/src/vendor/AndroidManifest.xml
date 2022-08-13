@@ -19,7 +19,7 @@
             android:name=".ServiceBooking"
             android:exported="false" />
         <activity
-            android:name=".activities.BookServicesActivity"
+            android:name=".ui.activities.BookServicesActivity"
             android:exported="true"
             android:theme="@style/blackActionBar">
 
@@ -29,7 +29,7 @@
             android:name=".SupportActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.FeedbackActivity"
+            android:name=".ui.activities.FeedbackActivity"
             android:exported="false" />
         <activity
             android:name=".ScheduledBookingsActivity"
@@ -43,7 +43,7 @@
             android:exported="false"
             android:theme="@style/whiteActionBar" />
         <activity
-            android:name=".activities.SplashActivity"
+            android:name=".ui.activities.SplashActivity"
             android:exported="true">
 
             <!--            <intent-filter>-->
@@ -53,7 +53,7 @@
             <!--            </intent-filter>-->
         </activity>
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="true">
 
             <intent-filter>
@@ -64,15 +64,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.AddDetailActivity"
+            android:name=".ui.activities.AddDetailActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activities.SearchActivity"
+            android:name=".ui.activities.SearchActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".ui.activities.LoginActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
 

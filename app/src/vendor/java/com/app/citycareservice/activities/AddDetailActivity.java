@@ -1,4 +1,4 @@
-package com.app.citycareservice.activities;
+package com.app.citycareservice.ui.activities;
 
 import android.app.Activity;
 import android.content.Intent;

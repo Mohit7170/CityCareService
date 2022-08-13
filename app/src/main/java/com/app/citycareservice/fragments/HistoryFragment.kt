@@ -37,7 +37,7 @@ class HistoryFragment : Fragment(), Params {
             if (diff == 0) {
                 if (hasMoreData) {
                     pageNo++
-                    myorders()
+                    myOrders()
                 }
             }
         }
@@ -55,15 +55,13 @@ class HistoryFragment : Fragment(), Params {
 
         HelperClass.changeStatusBarColor(activity, R.color.white, true)
 
-        historyAdapter = BookingHistoryAdapter(activity)
-        binding.bookingsRv.adapter = historyAdapter
-        binding.historySv.viewTreeObserver.addOnScrollChangedListener(scrollPaginationListener)
 
-        myorders()
+//        binding.historySv.viewTreeObserver.addOnScrollChangedListener(scrollPaginationListener)
+
+        myOrders()
     }
 
-    /*TODO Check Api*/
-    private fun myorders() {
+    private fun myOrders() {
         if (HelperClass.getNetworkInfo(activity)) {
             HelperClass.showLoader(activity)
             val prefHandler = SharedPrefHandler(activity)
@@ -81,8 +79,13 @@ class HistoryFragment : Fragment(), Params {
 
 //                        has_more_data = apiResponse.getTotal_pages() > page_no;
                         if (apiResponse.status) {
-                            if (pageNo == 1) historyAdapter.setData(apiResponse.results)
-                            else historyAdapter.addData(apiResponse.results)
+
+                            historyAdapter = BookingHistoryAdapter(activity,apiResponse.results)
+                            binding.bookingsRv.adapter = historyAdapter
+
+
+                           /* if (pageNo == 1) historyAdapter.setData(apiResponse.results)
+                            else historyAdapter.addData(apiResponse.results)*/
                         } else HelperClass.showToast(activity, apiResponse.message)
                     } else HelperClass.showToast(activity, activity.getString(R.string.something_went_wrong))
                     HelperClass.hideLoader()

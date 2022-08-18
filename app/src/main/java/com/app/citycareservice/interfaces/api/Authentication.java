@@ -1,7 +1,7 @@
 package com.app.citycareservice.interfaces.api;
 
 import com.app.citycareservice.modals.authentication.Register.RegisterResponse;
-import com.app.citycareservice.modals.authentication.UpdateProfile.UpdateProfileResponse;
+import com.app.citycareservice.modals.authentication.allUserData.UserDetailResponse;
 import com.app.citycareservice.modals.search.service.SearchServiceResponse;
 import com.app.citycareservice.utils.Params;
 
@@ -19,7 +19,7 @@ public interface Authentication extends Params {
 
     @FormUrlEncoded
     @POST(API_REGISTER_URL)
-    Call<RegisterResponse> checkRegister(@Field(API_PHONE_NUM_KEY) String user_phone);
+    Call<UserDetailResponse> checkRegister(@Field(API_PHONE_NUM_KEY) String user_phone);
 
     @FormUrlEncoded
     @POST(API_SERVICE_URL)
@@ -28,9 +28,8 @@ public interface Authentication extends Params {
 
     @Multipart
     @POST(API_UPDATE_PROFILE_URL)
-    Call<UpdateProfileResponse> updateProfile(@Header(API_AUTH_TOKEN_KEY) String auth_token,
-                                              @Part(API_FIRST_NAME_KEY) RequestBody first_name,
-                                              @Part(API_LAST_NAME_KEY) RequestBody last_name,
-                                              @Part(API_EMAIL_KEY) RequestBody email_id,
-                                              @Part MultipartBody.Part profile_pic);
+    Call<UserDetailResponse> updateProfile(@Header(API_AUTH_TOKEN_KEY) String authToken,
+                                           @Part(API_NAME_KEY) RequestBody name,
+                                           @Part(API_EMAIL_KEY) RequestBody emailId,
+                                           @Part MultipartBody.Part profilePic);
 }

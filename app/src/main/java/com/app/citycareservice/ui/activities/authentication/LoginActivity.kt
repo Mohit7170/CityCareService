@@ -22,14 +22,14 @@ import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.app.citycareservice.interfaces.api.Authentication
 import com.app.citycareservice.utils.ApiClient
-import com.app.citycareservice.modals.authentication.Register.RegisterResponse
 import android.content.Intent
 import android.util.Log
 import android.util.Patterns
 import android.view.View
 import com.app.citycareservice.ui.activities.MainActivity
 import com.app.citycareservice.databinding.ActivityLoginBinding
-import com.app.citycareservice.modals.authentication.Register.Result
+import com.app.citycareservice.modals.authentication.allUserData.Result
+import com.app.citycareservice.modals.authentication.allUserData.UserDetailResponse
 import com.app.citycareservice.utils.Params
 import com.app.citycareservice.utils.SharedPrefHandler
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity(), Params {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var activity: Activity
-    private  lateinit var countDownTimer:CountDownTimer
+    private lateinit var countDownTimer: CountDownTimer
     private var phoneNum = ""
     private lateinit var verificationId: String
     private lateinit var mAuth: FirebaseAuth
@@ -200,14 +200,12 @@ class LoginActivity : AppCompatActivity(), Params {
     private fun verifyLoginApi() {
         if (HelperClass.getNetworkInfo(activity)) {
             HelperClass.showLoader(activity)
-            val api = ApiClient.apiService(activity).create(
-                Authentication::class.java
-            )
+            val api = ApiClient.apiService(activity).create(Authentication::class.java)
             val call = api.checkRegister(phoneNum)
-            call.enqueue(object : Callback<RegisterResponse?> {
+            call.enqueue(object : Callback<UserDetailResponse> {
                 override fun onResponse(
-                    call: Call<RegisterResponse?>,
-                    response: Response<RegisterResponse?>
+                    call: Call<UserDetailResponse>,
+                    response: Response<UserDetailResponse>
                 ) {
                     if (response.code() == HttpURLConnection.HTTP_UNAUTHORIZED) {
                         //Token Expired
@@ -216,14 +214,14 @@ class LoginActivity : AppCompatActivity(), Params {
                     }
                     val apiResponse = response.body()
                     if (response.code() == HttpURLConnection.HTTP_OK && apiResponse != null) {
-                        if (apiResponse.statusCode == HttpURLConnection.HTTP_OK) {
+                        if (apiResponse.status_code == HttpURLConnection.HTTP_OK) {
 //                            Account Already Exist
 //                            Login User
                             val result = apiResponse.results[0]
                             setDataToPref(result)
                             startActivity(Intent(activity, MainActivity::class.java))
                             finish()
-                        } else if (apiResponse.statusCode == HttpURLConnection.HTTP_CREATED) {
+                        } else if (apiResponse.status_code == HttpURLConnection.HTTP_CREATED) {
 //                            Account Created
 //                            Go to Add Details
                             val result = apiResponse.results[0]
@@ -238,7 +236,7 @@ class LoginActivity : AppCompatActivity(), Params {
                     HelperClass.hideLoader()
                 }
 
-                override fun onFailure(call: Call<RegisterResponse?>, t: Throwable) {
+                override fun onFailure(call: Call<UserDetailResponse>, t: Throwable) {
                     Log.d(TAG, "onFailure: Error is -- $t")
                     HelperClass.hideLoader()
                     HelperClass.showToast(
@@ -256,29 +254,25 @@ class LoginActivity : AppCompatActivity(), Params {
     private fun setDataToPref(result: Result) {
         val bundle = Bundle()
         if (!TextUtils.isEmpty(result.id)) bundle.putString(Params.BUNDLE_KEY_USER_ID, result.id)
-        if (!TextUtils.isEmpty(result.authToken)) bundle.putString(
+        if (!TextUtils.isEmpty(result.auth_token)) bundle.putString(
             Params.BUNDLE_KEY_USER_AUTH_TOKEN,
-            result.authToken
+            result.auth_token
         )
         if (!TextUtils.isEmpty(result.email)) bundle.putString(
             Params.BUNDLE_KEY_USER_EMAIL,
             result.email
         )
-        if (!TextUtils.isEmpty(result.firstName)) bundle.putString(
-            Params.BUNDLE_KEY_USER_FIRST_NAME,
-            result.firstName
-        )
-        if (!TextUtils.isEmpty(result.lastName)) bundle.putString(
-            Params.BUNDLE_KEY_USER_LAST_NAME,
-            result.lastName
+        if (!TextUtils.isEmpty(result.name)) bundle.putString(
+            Params.BUNDLE_KEY_USER_FULL_NAME,
+            result.name
         )
         if (!TextUtils.isEmpty(result.phone)) bundle.putString(
             Params.BUNDLE_KEY_USER_PHONE,
             result.phone
         )
-        if (!TextUtils.isEmpty(result.profilePic)) bundle.putString(
+        if (!TextUtils.isEmpty(result.profile_pic)) bundle.putString(
             Params.BUNDLE_KEY_PROFILE_PIC_URL,
-            result.profilePic
+            result.profile_pic
         )
         val prefHandler = SharedPrefHandler(activity)
         prefHandler.setUserData(bundle)

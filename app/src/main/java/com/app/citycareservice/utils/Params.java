@@ -55,7 +55,7 @@ public interface Params {
     String API_AUTH_TOKEN_KEY = "x-auth-token";
     String API_PHONE_NUM_KEY = "phone";
     String API_USER_ID_KEY = "id";
-    String API_FIRST_NAME_KEY = "first_name";
+    String API_NAME_KEY = "name";
     String API_LAST_NAME_KEY = "last_name";
     String API_EMAIL_KEY = "email";
     String API_PROFILE_PIC_KEY = "profile_pic";
@@ -74,8 +74,8 @@ public interface Params {
     String BUNDLE_KEY_PROFILE_PIC_URI = "profile_pic_uri";
     String BUNDLE_KEY_PROFILE_PIC_URL = "profile_pic_url";
     String BUNDLE_KEY_USER_ID = "user_id";
-    String BUNDLE_KEY_USER_FIRST_NAME = "first_name";
-    String BUNDLE_KEY_USER_LAST_NAME = "last_name";
+//    String BUNDLE_KEY_USER_FIRST_NAME = "first_name";
+//    String BUNDLE_KEY_USER_LAST_NAME = "last_name";
     String BUNDLE_KEY_USER_FULL_NAME = "full_name";
     String BUNDLE_KEY_USER_EMAIL = "user_email";
     String BUNDLE_KEY_USER_ADDRESS = "user_address";

@@ -191,11 +191,11 @@ public class HelperClass implements Params {
                         listener.onButtonPressed(true);
                     }
                 }).setNegativeButton(negativeText, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        }).setCancelable(cancelable)
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                }).setCancelable(cancelable)
                 .show();
     }
 
@@ -237,13 +237,14 @@ public class HelperClass implements Params {
 
     public static void setImage(Activity activity, String imgUrl, ImageView imageView, int placeholder) {
         if (TextUtils.isEmpty(imgUrl) || TextUtils.equals(imgUrl, DEFAULT_EMPTY_STRING)) {
-            Glide.with(activity).load(placeholder).into(imageView);
+            imageView.setImageDrawable(activity.getDrawable(R.drawable.ic_placeholder));
+//            Glide.with(activity).load(placeholder).into(imageView);
             return;
         }
         Glide.with(activity)
                 .load(imgUrl)
                 .thumbnail(0.01f)
-                .placeholder(placeholder)
+                .placeholder(activity.getDrawable(R.drawable.ic_placeholder))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
     }

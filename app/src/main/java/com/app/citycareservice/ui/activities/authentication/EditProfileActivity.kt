@@ -14,14 +14,7 @@ import com.app.citycareservice.utils.SharedPrefHandler
 
 class EditProfileActivity : AppCompatActivity(), Params {
     private val activity: Activity = this@EditProfileActivity
-
     private lateinit var binding: ActivityEditProfileBinding
-/*
-    private var back_iv: ImageView? = null
-    private var name_tif: TextInputLayout? = null
-    private var email_tif: TextInputLayout? = null
-    private var phone_tif: TextInputLayout? = null
-    private var update_btn: MaterialButton? = null*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,21 +42,14 @@ class EditProfileActivity : AppCompatActivity(), Params {
             nameTif.isErrorEnabled = false
             emailTif.isErrorEnabled = false
             phoneTif.isErrorEnabled = false
-            val nameRegex = Regex("^[A-Za-z]+$")
-            val name =
+            val fullName =
                 nameTef.text.toString().trim()
-            val lastName = ""
             val email =
                 emailTef.text.toString().trim()
             val phone =
                 phoneTef.text.toString().trim()
-            if (TextUtils.isEmpty(name)) {
+            if (TextUtils.isEmpty(fullName)) {
                 nameTif.error = "Name Cannot be Empty"
-                nameTif.isFocusable = true
-                return
-            }
-            if (!name.matches(nameRegex)) {
-                nameTif.error = "Invalid Name"
                 nameTif.isFocusable = true
                 return
             }
@@ -86,15 +72,9 @@ class EditProfileActivity : AppCompatActivity(), Params {
                 return
             }
             val bundle = Bundle()
-            bundle.putString(Params.BUNDLE_KEY_USER_FIRST_NAME, name)
+            bundle.putString(Params.BUNDLE_KEY_USER_FULL_NAME, fullName)
             bundle.putString(Params.BUNDLE_KEY_USER_EMAIL, email)
 
-//        if (isProfileImgSelected)
-//            bundle.putString(BUNDLE_KEY_PROFILE_PIC_URI, profile_pic_uri.toString());
-            if (!TextUtils.isEmpty(lastName)) bundle.putString(
-                Params.BUNDLE_KEY_USER_LAST_NAME,
-                lastName
-            )
             startService(
                 Intent(
                     activity,

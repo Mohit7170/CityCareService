@@ -26,7 +26,7 @@ public class AddDetailActivity extends AppCompatActivity implements Params {
 
     private Activity activity = AddDetailActivity.this;
 
-//    private ImageView back_iv;
+    //    private ImageView back_iv;
     private ShapeableImageView user_iv;
     private EditText first_name_et;
     private EditText last_name_et;
@@ -85,14 +85,13 @@ public class AddDetailActivity extends AppCompatActivity implements Params {
             return;
         }
 
+        String fullName = firstName + " " + lastName;
+
         Bundle bundle = new Bundle();
-//        bundle.putString(BUNDLE_KEY_USER_ID, SharedPrefHandler.getString(activity, SP_KEY_USER_ID));
-        bundle.putString(BUNDLE_KEY_USER_FIRST_NAME, firstName);
+        bundle.putString(BUNDLE_KEY_USER_FULL_NAME, fullName);
 
         if (isProfileImgSelected)
             bundle.putString(BUNDLE_KEY_PROFILE_PIC_URI, profile_pic_uri.toString());
-        if (!TextUtils.isEmpty(lastName))
-            bundle.putString(BUNDLE_KEY_USER_LAST_NAME, lastName);
 
         startService(new Intent(activity, UpdateProfileService.class).putExtra(BUNDLE_NAME_PROFILE_DATA, bundle));
         startActivity(new Intent(activity, MainActivity.class));

@@ -76,10 +76,8 @@ public class SharedPrefHandler implements Params {
     public void setUserData(Bundle loginDataBundle) {
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        if (loginDataBundle.containsKey(BUNDLE_KEY_USER_FIRST_NAME))
-            editor.putString(SP_KEY_USER_NAME, loginDataBundle.getString(BUNDLE_KEY_USER_FIRST_NAME));
-        if (loginDataBundle.containsKey(BUNDLE_KEY_USER_LAST_NAME))
-            editor.putString(SP_KEY_USER_LAST_NAME, loginDataBundle.getString(BUNDLE_KEY_USER_LAST_NAME));
+        if (loginDataBundle.containsKey(BUNDLE_KEY_USER_FULL_NAME))
+            editor.putString(SP_KEY_USER_NAME, loginDataBundle.getString(BUNDLE_KEY_USER_FULL_NAME));
         if (loginDataBundle.containsKey(BUNDLE_KEY_USER_EMAIL))
             editor.putString(SP_KEY_USER_EMAIL, loginDataBundle.getString(BUNDLE_KEY_USER_EMAIL));
         if (loginDataBundle.containsKey(BUNDLE_KEY_PROFILE_PIC_URL))
@@ -88,8 +86,6 @@ public class SharedPrefHandler implements Params {
             editor.putString(SP_KEY_USER_ID, loginDataBundle.getString(BUNDLE_KEY_USER_ID));
         if (loginDataBundle.containsKey(BUNDLE_KEY_USER_PHONE))
             editor.putString(SP_KEY_USER_PHONE, loginDataBundle.getString(BUNDLE_KEY_USER_PHONE));
-//        if (loginDataBundle.containsKey(BUNDLE_KEY_USER_ADDRESS))
-//            editor.putString(SP_KEY_USER_ADDRESS, loginDataBundle.getString(BUNDLE_KEY_USER_ADDRESS));
         if (loginDataBundle.containsKey(BUNDLE_KEY_USER_AUTH_TOKEN))
             editor.putString(SP_KEY_AUTH_TOKEN, loginDataBundle.getString(BUNDLE_KEY_USER_AUTH_TOKEN));
 

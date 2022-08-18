@@ -43,8 +43,10 @@ class HistoryFragment : Fragment(), Params {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
         binding = FragmentHistoryBinding.inflate(layoutInflater)
         activity = binding.root.context as Activity
         return binding.root
@@ -68,7 +70,10 @@ class HistoryFragment : Fragment(), Params {
             val api = ApiClient.apiService(activity).create(Service::class.java)
             val call = api.getMyOrders(prefHandler.getString(Params.SP_KEY_AUTH_TOKEN) /*page_no*/)
             call.enqueue(object : Callback<MyOrdersResponse> {
-                override fun onResponse(call: Call<MyOrdersResponse>, response: Response<MyOrdersResponse>) {
+                override fun onResponse(
+                    call: Call<MyOrdersResponse>,
+                    response: Response<MyOrdersResponse>
+                ) {
                     if (response.code() == HttpURLConnection.HTTP_UNAUTHORIZED) {
                         //Token Expired
                         HelperClass.logout(activity, true)
@@ -80,24 +85,35 @@ class HistoryFragment : Fragment(), Params {
 //                        has_more_data = apiResponse.getTotal_pages() > page_no;
                         if (apiResponse.status) {
 
-                            historyAdapter = BookingHistoryAdapter(activity,apiResponse.results)
-                            binding.bookingsRv.adapter = historyAdapter
+                            if (apiResponse.results.isNotEmpty()) {
+                                historyAdapter =
+                                    BookingHistoryAdapter(activity, apiResponse.results)
+                                binding.bookingsRv.adapter = historyAdapter
+                            }
 
-
-                           /* if (pageNo == 1) historyAdapter.setData(apiResponse.results)
-                            else historyAdapter.addData(apiResponse.results)*/
+                            /* if (pageNo == 1) historyAdapter.setData(apiResponse.results)
+                             else historyAdapter.addData(apiResponse.results)*/
                         } else HelperClass.showToast(activity, apiResponse.message)
-                    } else HelperClass.showToast(activity, activity.getString(R.string.something_went_wrong))
+                    } else HelperClass.showToast(
+                        activity,
+                        activity.getString(R.string.something_went_wrong)
+                    )
                     HelperClass.hideLoader()
                 }
 
                 override fun onFailure(call: Call<MyOrdersResponse>, t: Throwable) {
                     Log.d(TAG, "onFailure: Error is -- $t")
                     HelperClass.hideLoader()
-                    HelperClass.showToast(activity, activity!!.getString(R.string.something_went_wrong))
+                    HelperClass.showToast(
+                        activity,
+                        activity!!.getString(R.string.something_went_wrong)
+                    )
                 }
             })
-        } else HelperClass.showToast(activity, activity.getString(R.string.check_internet_connection))
+        } else HelperClass.showToast(
+            activity,
+            activity.getString(R.string.check_internet_connection)
+        )
     }
 
     companion object {

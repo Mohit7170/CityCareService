@@ -3,23 +3,15 @@ package com.app.citycareservice.adapters.recycler_view
 import android.app.Activity
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
-import com.app.citycareservice.modals.historyModal.BookingHistoryResponse
 import android.view.ViewGroup
 import android.view.LayoutInflater
-import android.view.View
-import com.app.citycareservice.R
-import com.google.android.material.imageview.ShapeableImageView
-import android.widget.TextView
-import android.widget.RatingBar
 import com.app.citycareservice.databinding.ItemContainerMyBookingsBinding
 import com.app.citycareservice.modals.order.myOrders.Result
-import com.app.citycareservice.utils.HelperClass
 import com.app.citycareservice.utils.Params
-import java.util.ArrayList
 
 class BookingHistoryAdapter(
     private val activity: Activity,
-    private val bookingHistoryResponses: List<Result>
+    private val bookingHistoryResponses: List<Result>,
 ) :
     RecyclerView.Adapter<BookingHistoryAdapter.ViewHolder>(), Params {
 

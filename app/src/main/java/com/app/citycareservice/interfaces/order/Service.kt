@@ -20,11 +20,11 @@ interface Service : Params {
                     @Field(Params.API_SERVICE_LOCATION_KEY) address: String): Call<CreateOrderResponse>
 
 //    @FormUrlEncoded
-    @GET(Params.API_MY_ORDERS_URL)
+    @POST(Params.API_MY_ORDERS_URL)
     fun getMyOrders(@Header(Params.API_AUTH_TOKEN_KEY) authToken: String,
                /*     @Field(Params.API_PAGE_NUMBER_KEY) pageNumber: Int*/): Call<MyOrdersResponse>
 
 //    @FormUrlEncoded
-    @GET(Params.API_GET_ALL_SERVICE_URL)
+    @POST(Params.API_GET_ALL_SERVICE_URL)
     fun getAllServices(@Header(Params.API_AUTH_TOKEN_KEY) authToken: String): Call<AllServicesResposne>
 }

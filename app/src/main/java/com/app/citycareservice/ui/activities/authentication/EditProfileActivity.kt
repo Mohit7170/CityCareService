@@ -10,6 +10,8 @@ import com.app.citycareservice.databinding.ActivityEditProfileBinding
 import com.app.citycareservice.service.UpdateProfileService
 import com.app.citycareservice.utils.HelperClass
 import com.app.citycareservice.utils.Params
+import com.app.citycareservice.utils.Params.BUNDLE_KEY_USER_EMAIL
+import com.app.citycareservice.utils.Params.BUNDLE_KEY_USER_FULL_NAME
 import com.app.citycareservice.utils.SharedPrefHandler
 
 class EditProfileActivity : AppCompatActivity(), Params {
@@ -46,43 +48,33 @@ class EditProfileActivity : AppCompatActivity(), Params {
                 nameTef.text.toString().trim()
             val email =
                 emailTef.text.toString().trim()
-            val phone =
-                phoneTef.text.toString().trim()
-            if (TextUtils.isEmpty(fullName)) {
-                nameTif.error = "Name Cannot be Empty"
-                nameTif.isFocusable = true
-                return
-            }
-            if (TextUtils.isEmpty(email)) {
-                emailTif.error = "Email Cannot be Empty"
-                emailTif.isFocusable = true
-                return
-            }
-            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                emailTif.error = "Invalid Email Id"
-                emailTif.isFocusable = true
-                return
-            }
-            if (TextUtils.isEmpty(phone)) {
-                phoneTif.error = "Phone Cannot be Empty"
-                return
-            }
-            if (!Patterns.PHONE.matcher(phone).matches()) {
-                phoneTif.error = "Invalid Phone NUmber"
-                return
-            }
-            val bundle = Bundle()
-            bundle.putString(Params.BUNDLE_KEY_USER_FULL_NAME, fullName)
-            bundle.putString(Params.BUNDLE_KEY_USER_EMAIL, email)
 
-            startService(
-                Intent(
-                    activity,
-                    UpdateProfileService::class.java
-                ).putExtra(Params.BUNDLE_NAME_PROFILE_DATA, bundle)
-            )
-            HelperClass.showToast(activity, "Profile Update Successfully")
-            finish()
+            val bundle = Bundle()
+
+            if (!TextUtils.isEmpty(fullName))
+                bundle.putString(BUNDLE_KEY_USER_FULL_NAME, fullName)
+
+            if (!TextUtils.isEmpty(email)) {
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    emailTif.error = "Invalid Email Id"
+                    emailTif.isFocusable = true
+                } else
+                    bundle.putString(BUNDLE_KEY_USER_EMAIL, email)
+            }
+
+            if (bundle.containsKey(BUNDLE_KEY_USER_FULL_NAME)
+                || bundle.containsKey(BUNDLE_KEY_USER_EMAIL)
+            ) {
+                startService(
+                    Intent(
+                        activity, UpdateProfileService::class.java
+                    ).putExtra(Params.BUNDLE_NAME_PROFILE_DATA, bundle)
+                )
+                HelperClass.showToast(activity, "Profile Update Successfully")
+                finish()
+            } else {
+                HelperClass.showToast(activity, "Please enter name or email to be updated")
+            }
         }
     }
 

@@ -23,6 +23,7 @@ import com.app.citycareservice.utils.ApiClient
 import com.app.citycareservice.modals.order.CreateOrderResponse
 import com.app.citycareservice.interfaces.order.Service
 import com.app.citycareservice.utils.Params
+import com.app.citycareservice.utils.Params.INTENT_KEY_SERVICE_ID
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,7 +44,7 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
     private var timeToFinish: String = ""
     private var selectDate: String = ""
     private var selectTime: String = ""
-    private val serviceId: String = ""
+    private var serviceId: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,12 +60,13 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
             e.printStackTrace()
         }
         val addressDatabase = AddressDatabase.getInstance(activity)
-        val addressModal: AddressModal = if (prefHandler.hasKey(Params.SP_KEY_LAST_USED_ADDRESS_ID)) {
-            addressDatabase.addressDAO()
-                .getAddress(prefHandler.getIntFromSharedPref(Params.SP_KEY_LAST_USED_ADDRESS_ID))
-        } else {
-            addressDatabase.addressDAO().addresses[0]
-        }
+        val addressModal: AddressModal =
+            if (prefHandler.hasKey(Params.SP_KEY_LAST_USED_ADDRESS_ID) && addressDatabase.addressDAO().addresses.isNullOrEmpty()) {
+                addressDatabase.addressDAO()
+                    .getAddress(prefHandler.getIntFromSharedPref(Params.SP_KEY_LAST_USED_ADDRESS_ID))
+            } else {
+                addressDatabase.addressDAO().addresses[0]
+            }
         onClick(addressModal)
 
         with(binding) {
@@ -81,7 +83,14 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
                 change_address_tv.performClick();*/
             val intent = intent
             //        time_to_finish = intent.getStringExtra(INTENT_KEY_TIME_TO_FINISH");
-//        serviceId = intent.getStringExtra(INTENT_KEY_SERVICE_ID");
+            try {
+
+                serviceId = intent.getStringExtra(INTENT_KEY_SERVICE_ID)
+                    ?: throw Exception("Service Id can't be null")
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
             timeToFinish = "45"
             HelperClass.showLoader(activity)
             serviceTimeTv.text = "Your Service take aproxx. $timeToFinish mins."
@@ -119,19 +128,17 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
         if (HelperClass.getNetworkInfo(activity)) {
             HelperClass.showLoader(activity)
             val prefHandler = SharedPrefHandler(activity)
-            val api = ApiClient.apiService(activity).create(
-                Service::class.java
-            )
+            val api = ApiClient.apiService(activity).create(Service::class.java)
             val call = api.createOrder(
-                prefHandler.getString(Params.SP_KEY_AUTH_TOKEN),
-                prefHandler.getString(
+                authToken = prefHandler.getString(Params.SP_KEY_AUTH_TOKEN),
+                userId = prefHandler.getString(
                     Params.SP_KEY_USER_ID
                 ),
-                serviceId,
-                selectDate,
-                selectTime,
-                Params.DEFAULT_EMPTY_STRING,
-                selectAddress
+                serviceId = serviceId,
+                serviceDate = selectDate,
+                serviceTime = selectTime,
+                remarks = Params.DEFAULT_EMPTY_STRING,
+                address = selectAddress
             )
             call.enqueue(object : Callback<CreateOrderResponse?> {
                 override fun onResponse(

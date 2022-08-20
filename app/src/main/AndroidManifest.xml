@@ -73,7 +73,11 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.app.citycareservice.ui.activities.service.ServiceCategoryActivity"
+            android:name="com.app.citycareservice.ui.activities.service.ServiceCategoryDetailActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.app.citycareservice.ui.activities.service.ServiceDetailActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity

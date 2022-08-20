@@ -16,7 +16,7 @@ public class ServicesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_serives);
+        setContentView(R.layout.activity_services);
 
         activity = ServicesActivity.this;
         all_services_rv = findViewById(R.id.all_services_rv);

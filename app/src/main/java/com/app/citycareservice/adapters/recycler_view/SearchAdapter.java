@@ -1,6 +1,8 @@
 package com.app.citycareservice.adapters.recycler_view;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.citycareservice.R;
 import com.app.citycareservice.modals.search.service.Result;
+import com.app.citycareservice.ui.activities.service.ServiceDetailActivity;
 import com.app.citycareservice.utils.HelperClass;
 import com.app.citycareservice.utils.Params;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -32,7 +35,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         int old_size = this.results.size();
         this.results.clear();
         this.results.addAll(results);
-        notifyItemRangeChanged(0, old_size);
+//        notifyItemRangeChanged(0, old_size);
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -46,7 +50,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         Result serviceModal = results.get(position);
 
-
         HelperClass.setImage(activity, serviceModal.getImage(), holder.service_iv, R.drawable.circle);
         holder.service_name_tv.setText(serviceModal.getTitle());
         holder.service_desc_tv.setText(serviceModal.getDescription());
@@ -54,7 +57,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         holder.main_layout_single_service_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HelperClass.showToast(activity, activity.getString(R.string.under_development));
+                activity.startActivity(new Intent(activity, ServiceDetailActivity.class).
+                        putExtra(INTENT_KEY_SERVICE_ID, results.get(holder.getAdapterPosition()).getId()));
             }
         });
 

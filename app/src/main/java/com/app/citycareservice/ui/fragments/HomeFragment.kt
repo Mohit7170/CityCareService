@@ -17,7 +17,7 @@ import com.app.citycareservice.databinding.FragmentHomeBinding
 import com.app.citycareservice.interfaces.api.Authentication
 import com.app.citycareservice.modals.search.service.SearchServiceResponse
 import com.app.citycareservice.interfaces.order.Service
-import com.app.citycareservice.modals.allService.AllServicesResposne
+import com.app.citycareservice.modals.allService.ServicesResposne
 import com.app.citycareservice.utils.*
 import com.google.android.gms.location.LocationRequest
 import retrofit2.Call
@@ -130,7 +130,6 @@ class HomeFragment : Fragment(), Params {
         }
     }
 
-
     private fun getHomeData() {
         if (HelperClass.getNetworkInfo(activity)) {
             HelperClass.showLoader(activity)
@@ -138,10 +137,10 @@ class HomeFragment : Fragment(), Params {
             val api = ApiClient.apiService(activity).create(Service::class.java)
             val call =
                 api.getAllServices(prefHandler.getString(Params.SP_KEY_AUTH_TOKEN) /*page_no*/)
-            call.enqueue(object : Callback<AllServicesResposne> {
+            call.enqueue(object : Callback<ServicesResposne> {
                 override fun onResponse(
-                    call: Call<AllServicesResposne>,
-                    response: Response<AllServicesResposne>
+                    call: Call<ServicesResposne>,
+                    response: Response<ServicesResposne>
                 ) {
                     HelperClass.hideLoader()
 
@@ -154,8 +153,7 @@ class HomeFragment : Fragment(), Params {
                     if (response.code() == HttpURLConnection.HTTP_OK && apiResponse != null) {
 
 //                        has_more_data = apiResponse.getTotal_pages() > page_no;
-                        if (apiResponse.status) {
-
+                        if (apiResponse.status && apiResponse.results.isNotEmpty()) {
                             servicesAdapter = ServicesAdapter(activity, apiResponse.results)
                             binding.servicesRv.adapter = servicesAdapter
 
@@ -169,7 +167,7 @@ class HomeFragment : Fragment(), Params {
                     )
                 }
 
-                override fun onFailure(call: Call<AllServicesResposne>, t: Throwable) {
+                override fun onFailure(call: Call<ServicesResposne>, t: Throwable) {
                     Log.d(TAG, "onFailure: Error is -- $t")
                     HelperClass.hideLoader()
                     HelperClass.showToast(
@@ -183,7 +181,6 @@ class HomeFragment : Fragment(), Params {
             activity.getString(R.string.check_internet_connection)
         )
     }
-
 
     //    private void fetchLocation() {
     //        if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {

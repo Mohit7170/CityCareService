@@ -11,9 +11,7 @@ public interface Params {
     int REQ_CODE_ENABLE_GPS = 10002;
     int REQ_CODE_LOCATION_PERMISSION = 10003;
 
-
     String SHARED_PREF_NAME = "CCSharedPref";
-    String INTENT_KEY_SERVICE_CATEGORY_ID = "serviceCategory";
     String DEFAULT_EMPTY_STRING = "-";
     //    String API_BASE_URL = "https://www.citycareservice.com";
     String API_BASE_URL = "http://sarkarinokar.com:3000/api/v1/";
@@ -42,6 +40,7 @@ public interface Params {
     //Intent Keys
     String INTENT_KEY_TIME_TO_FINISH = "timeToFinish";
     String INTENT_KEY_SERVICE_ID = "serviceId";
+    String INTENT_KEY_SERVICE_CATEGORY_ID = "categoryId";
 
     //    API Urls
     String API_REGISTER_URL = "register";
@@ -50,6 +49,7 @@ public interface Params {
     String API_CREATE_ORDER_URL = "orders/create";
     String API_MY_ORDERS_URL = "users/my-orders";
     String API_GET_ALL_SERVICE_URL = "services";
+    String API_CATEGORY_URL = "category";
 
     //    Api Keys
     String API_AUTH_TOKEN_KEY = "x-auth-token";
@@ -62,6 +62,7 @@ public interface Params {
     String API_QUERY_KEY = "query";
     String API_PAGE_NUMBER_KEY = "page_number";
 
+    String API_ID_KEY = "id";
     String API_SERVICE_ID_KEY = "service_id";
     String API_SERVICE_DATE_KEY = "service_date";
     String API_SERVICE_TIME_KEY = "service_time";

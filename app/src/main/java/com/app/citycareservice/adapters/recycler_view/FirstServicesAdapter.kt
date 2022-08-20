@@ -1,26 +1,20 @@
 package com.app.citycareservice.adapters.recycler_view
 
 import android.app.Activity
+import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
-import com.app.citycareservice.modals.ServiceModal
 import android.view.ViewGroup
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.ImageView
 import com.app.citycareservice.R
-import android.widget.TextView
-import android.widget.LinearLayout
-import com.app.citycareservice.databinding.ItemContainerDiffServicesBinding
 import com.app.citycareservice.databinding.ItemContainerServicesBinding
-import com.app.citycareservice.modals.allService.Result
 import com.app.citycareservice.modals.allService.Service
+import com.app.citycareservice.ui.activities.service.ServiceDetailActivity
 import com.app.citycareservice.utils.HelperClass
 import com.app.citycareservice.utils.Params
-import java.util.ArrayList
 
 class FirstServicesAdapter(
     private val activity: Activity,
-    private val allServices: List<Service>
+    private val allService: List<Service>
 ) : RecyclerView.Adapter<FirstServicesAdapter.ViewHolder>(), Params {
 
 
@@ -39,18 +33,26 @@ class FirstServicesAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder.binding) {
 
-            val service = allServices[position]
+            val service = allService[position]
             serviceNameTv.text = service.title
             HelperClass.setImage(activity, service.icon, serviceIv, R.drawable.circle)
+
+            root.setOnClickListener {
+                activity.startActivity(
+                    Intent(activity, ServiceDetailActivity::class.java).putExtra(
+                        Params.INTENT_KEY_SERVICE_ID, allService[holder.adapterPosition]._id
+                    )
+                )
+            }
         }
 
-       /* holder.main_layout_single_service.setOnClickListener {
-            //                activity.startActivity(new Intent(activity, ServicesActivity.class).putExtra(INTENT_KEY_SERVICE_CATEGORY_ID, ""));
-        }*/
+        /* holder.main_layout_single_service.setOnClickListener {
+             //                activity.startActivity(new Intent(activity, ServicesActivity.class).putExtra(INTENT_KEY_SERVICE_CATEGORY_ID, ""));
+         }*/
     }
 
     override fun getItemCount(): Int {
-        return allServices.size
+        return allService.size
     }
 
     inner class ViewHolder(val binding: ItemContainerServicesBinding) :

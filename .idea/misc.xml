@@ -80,13 +80,19 @@
         <entry key="app/src/main/res/layout/activity_search.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/activity_serives.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/activity_service_category.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/activity_service_category_detail.xml" value="0.267840593141798" />
+        <entry key="app/src/main/res/layout/activity_service_detail.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/activity_test.xml" value="0.25815217391304346" />
         <entry key="app/src/main/res/layout/bottom_sheet_booking.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.1983695652173913" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.35625" />
-        <entry key="app/src/main/res/layout/item_container_diff_services.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/item_container_all_services.xml" value="0.29243266353142366" />
+        <entry key="app/src/main/res/layout/item_container_diff_services.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/item_container_my_bookings.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/item_container_reviews.xml" value="0.29243266353142366" />
+        <entry key="app/src/main/res/layout/item_container_search.xml" value="0.1872103799814643" />
+        <entry key="app/src/main/res/layout/item_container_service_detail.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/item_container_services.xml" value="0.35625" />
       </map>
     </option>

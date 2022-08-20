@@ -5,7 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.app.citycareservice.ui.activities.service.ServiceCategoryActivity
+import com.app.citycareservice.ui.activities.service.ServiceCategoryDetailActivity
 import com.app.citycareservice.databinding.ItemContainerDiffServicesBinding
 import com.app.citycareservice.modals.allService.Result
 import com.app.citycareservice.utils.Params
@@ -30,18 +30,21 @@ class ServicesAdapter(
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-        with(holder.binding) {
-            val service = allServices[position]
-            serviceHeadingTv.text = service.name
-            servicesRv.adapter = FirstServicesAdapter(activity, service.services)
-            serviceHeadingTv.setOnClickListener {
-                activity.startActivity(
-                    Intent(activity, ServiceCategoryActivity::class.java).putExtra(
-                        Params.INTENT_KEY_SERVICE_CATEGORY_ID, service._id
+        try {
+            with(holder.binding) {
+                val service = allServices[position]
+                serviceHeadingTv.text = service.name
+                servicesRv.adapter = FirstServicesAdapter(activity, service.services)
+                serviceHeadingTv.setOnClickListener {
+                    activity.startActivity(
+                        Intent(activity, ServiceCategoryDetailActivity::class.java).putExtra(
+                            Params.INTENT_KEY_SERVICE_CATEGORY_ID, service._id
+                        )
                     )
-                )
+                }
             }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 

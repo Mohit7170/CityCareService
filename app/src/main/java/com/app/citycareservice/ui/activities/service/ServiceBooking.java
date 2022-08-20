@@ -11,6 +11,6 @@ public class ServiceBooking extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_service_category);
+        setContentView(R.layout.activity_service_category_detail);
     }
 }

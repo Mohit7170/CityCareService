@@ -54,7 +54,7 @@ class BookingHistoryAdapter(
 
     override fun getItemCount(): Int {
 //        return bookingHistoryResponses.size
-        return 5
+        return bookingHistoryResponses.size
     }
 
     inner class ViewHolder(val binding: ItemContainerMyBookingsBinding) :

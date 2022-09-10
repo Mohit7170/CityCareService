@@ -10,5 +10,7 @@ data class Result(
     val service_id: String,
     val service_time: String,
     val updatedAt: String,
-    val user_id: String
+    val user_id: String,
+    val rating: String,
+    val price: String
 )

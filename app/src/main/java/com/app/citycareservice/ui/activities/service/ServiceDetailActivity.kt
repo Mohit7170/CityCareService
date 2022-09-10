@@ -95,8 +95,10 @@ class ServiceDetailActivity : AppCompatActivity() {
                                             R.drawable.ic_placeholder
                                         )
 
+                                        ratingTv.text = data.rating
                                         serviceNameTv.text = data.title
                                         detailTv.text = data.description
+                                        priceTv.text = "₹ ${data.price}"
 
                                         /*     servicesRv.adapter =
                                                  ServicesDetailAdapter(activity, data.services)

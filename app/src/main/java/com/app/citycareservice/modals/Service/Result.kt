@@ -9,5 +9,9 @@ data class Result(
     val icon: String,
     val image: String,
     val title: String,
-    val updatedAt: String
+    val completion_time: String,
+    val offfers: List<String>,
+    val price: String,
+    val rating: String,
+//    val updatedAt: String
 )

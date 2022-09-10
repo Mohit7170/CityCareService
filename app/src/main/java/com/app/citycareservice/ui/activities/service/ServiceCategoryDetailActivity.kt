@@ -82,6 +82,7 @@ class ServiceCategoryDetailActivity : AppCompatActivity() {
 
                                         serviceNameTv.text = data.name
                                         detailTv.text = data.description
+                                        ratingTv.text = data.rating
 
                                         servicesRv.adapter =
                                             ServicesDetailAdapter(activity, data.services)

@@ -8,5 +8,6 @@ data class Result(
     val image: String,
     val name: String,
     val services: List<Service>,
-    val updatedAt: String
+    val updatedAt: String,
+    val rating: String
 )

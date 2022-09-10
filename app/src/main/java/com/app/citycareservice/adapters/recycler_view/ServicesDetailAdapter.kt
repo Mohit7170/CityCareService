@@ -44,6 +44,8 @@ class ServicesDetailAdapter(private val activity: Activity, private val services
                 )
 
                 serviceNameTv.text = service.title
+                servicePriceTv.text = "₹ ${service.price}"
+                serviceTimeTv.text = service.completion_time
 
                 bookNowTv.setOnClickListener {
                     activity.startActivity(

@@ -65,6 +65,7 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
                 addressDatabase.addressDAO()
                     .getAddress(prefHandler.getIntFromSharedPref(Params.SP_KEY_LAST_USED_ADDRESS_ID))
             } else {
+//                if(addressDatabase.addressDAO().addresses.is)
                 addressDatabase.addressDAO().addresses[0]
             }
         onClick(addressModal)

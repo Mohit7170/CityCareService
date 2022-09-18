@@ -2,9 +2,9 @@ package com.app.citycareservice.adapters.recycler_view
 
 import android.app.Activity
 import android.util.Log
-import androidx.recyclerview.widget.RecyclerView
-import android.view.ViewGroup
 import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.app.citycareservice.databinding.ItemContainerMyBookingsBinding
 import com.app.citycareservice.modals.order.myOrders.Result
 import com.app.citycareservice.utils.Params
@@ -12,8 +12,7 @@ import com.app.citycareservice.utils.Params
 class BookingHistoryAdapter(
     private val activity: Activity,
     private val bookingHistoryResponses: List<Result>,
-) :
-    RecyclerView.Adapter<BookingHistoryAdapter.ViewHolder>(), Params {
+) : RecyclerView.Adapter<BookingHistoryAdapter.ViewHolder>(), Params {
 
     /*  fun setData(bookingHistoryResponses: List<Result>) {
           Log.d(TAG, "setData: ")
@@ -47,7 +46,7 @@ class BookingHistoryAdapter(
             serviceDateTv.text = booking.service_date
             serviceTimeTv.text = booking.service_time
             reviewTv.text = booking.remarks
-            servicePriceTv.text ="₹ ${booking.price}"
+            servicePriceTv.text = "₹ ${booking.price}"
 //            ratingBar.rating = booking.rating.toFloat()
 
         }

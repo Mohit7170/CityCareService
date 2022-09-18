@@ -95,6 +95,8 @@
         <entry key="app/src/main/res/layout/item_container_search.xml" value="0.1872103799814643" />
         <entry key="app/src/main/res/layout/item_container_service_detail.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/item_container_services.xml" value="0.35625" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1872103799814643" />
+        <entry key="app/src/vendor/res/menu/side_menu.xml" value="0.1016597510373444" />
       </map>
     </option>
   </component>

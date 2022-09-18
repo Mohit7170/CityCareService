@@ -48,7 +48,7 @@ class BookingHistoryAdapter(
             serviceTimeTv.text = booking.service_time
             reviewTv.text = booking.remarks
             servicePriceTv.text ="₹ ${booking.price}"
-            ratingBar.rating = booking.rating.toFloat()
+//            ratingBar.rating = booking.rating.toFloat()
 
         }
 

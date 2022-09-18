@@ -1,5 +1,7 @@
 package com.app.citycareservice.modals.authentication.allUserData
 
+import com.app.citycarepartner.modals.common.DocumentsData
+
 data class Result(
     val __v: Int,
     val _id: String,

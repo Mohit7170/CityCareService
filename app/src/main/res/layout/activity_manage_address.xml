@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_start_margin"
-        android:text="Manage Addresses"
+        android:text="@string/manage_addresses_text"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/back_iv"
         app:layout_constraintEnd_toEndOf="@id/guide_end"

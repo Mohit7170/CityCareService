@@ -8,7 +8,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import com.app.citycareservice.utils.HelperClass
-import okhttp3.RequestBody
 import com.app.citycareservice.interfaces.api.Authentication
 import com.app.citycareservice.utils.ApiClient
 import com.app.citycareservice.modals.authentication.allUserData.UserDetailResponse

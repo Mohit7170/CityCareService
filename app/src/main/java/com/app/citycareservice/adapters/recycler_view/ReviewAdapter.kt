@@ -1,21 +1,14 @@
 package com.app.citycareservice.adapters.recycler_view
 
 import android.app.Activity
-import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
-import com.app.citycareservice.modals.ServiceCategoryModal
 import android.view.ViewGroup
 import android.view.LayoutInflater
-import android.view.View
 import com.app.citycareservice.R
-import android.widget.TextView
 import com.app.citycareservice.databinding.ItemContainerReviewsBinding
-import com.app.citycareservice.databinding.ItemContainerServiceDetailBinding
-import com.app.citycareservice.databinding.ItemContainerServicesBinding
 import com.app.citycareservice.modals.serviceCategory.Service
 import com.app.citycareservice.utils.HelperClass
 import com.app.citycareservice.utils.Params
-import java.util.ArrayList
 
 class ReviewAdapter(private val activity: Activity, private val services: List<Service>) :
     RecyclerView.Adapter<ReviewAdapter.ViewHolder>(), Params {

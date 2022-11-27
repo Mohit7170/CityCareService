@@ -43,7 +43,7 @@
         android:background="#1A000000"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:text="View More"
+        android:text="@string/view_more_text"
         android:textSize="14sp"
         android:visibility="gone"
         android:textStyle="bold"

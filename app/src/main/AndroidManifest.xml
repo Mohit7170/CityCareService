@@ -94,7 +94,7 @@
         </activity>
 
         <service
-            android:name=".service.UpdateProfileService"
+            android:name="com.app.citycareservice.service.UpdateProfileService"
             android:exported="false" />
     </application>
 

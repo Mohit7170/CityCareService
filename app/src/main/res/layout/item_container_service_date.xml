@@ -24,14 +24,14 @@
             style="@style/tv.normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tue" />
+            tools:text="Tue" />
 
         <TextView
             android:id="@+id/date_tv"
             style="@style/tv.large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="21"
+            tools:text="21"
             android:textStyle="bold" />
     </LinearLayout>
 

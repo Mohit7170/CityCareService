@@ -13,8 +13,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/user_iv"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginStart="@dimen/view_start_margin_normal"
         android:layout_marginTop="@dimen/view_top_margin_normal"
         android:layout_marginEnd="@dimen/view_end_margin_normal"
@@ -42,10 +42,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/view_start_margin_normal"
-        android:text="Ac Gas Filling"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@id/user_iv"
-        app:layout_constraintTop_toTopOf="@id/user_iv" />
+        app:layout_constraintTop_toTopOf="@id/user_iv"
+        tools:text="Ac Gas Filling" />
 
     <TextView
         android:id="@+id/service_date_tv"
@@ -54,9 +54,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/view_start_margin_normal"
         android:layout_marginTop="@dimen/view_top_margin_small"
-        android:text="22-02-2022"
         app:layout_constraintStart_toEndOf="@id/user_iv"
-        app:layout_constraintTop_toBottomOf="@id/service_name_tv" />
+        app:layout_constraintTop_toBottomOf="@id/service_name_tv"
+        tools:text="22-02-2022" />
 
     <TextView
         android:id="@+id/service_time_tv"
@@ -64,21 +64,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/view_start_margin_normal"
-        android:text="\u2022 1 p.m. "
         app:layout_constraintStart_toEndOf="@id/service_date_tv"
-        app:layout_constraintTop_toTopOf="@id/service_date_tv" />
+        app:layout_constraintTop_toTopOf="@id/service_date_tv"
+        tools:text="\u2022 1 p.m. " />
 
     <RatingBar
-        android:id="@+id/rating_bar"
+        android:id="@+id/review_bar"
         style="@style/Widget.AppCompat.RatingBar.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/view_top_margin_normal"
         android:max="5"
+        android:visibility="gone"
+        tools:visibility="visible"
         android:numStars="5"
-        android:progress="2"
         app:layout_constraintStart_toStartOf="@id/service_date_tv"
-        app:layout_constraintTop_toBottomOf="@id/service_time_tv" />
+        app:layout_constraintTop_toBottomOf="@id/service_time_tv"
+        tools:progress="2" />
 
     <TextView
         android:id="@+id/service_price_tv"
@@ -86,23 +88,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/view_end_margin_large"
-        android:text="₹ 499/-"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rating" />
+        app:layout_constraintTop_toTopOf="@+id/review"
+        tools:text="₹ 499/-" />
 
     <TextView
-        android:id="@+id/rating"
+        android:id="@+id/review"
         style="@style/tv.normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/view_top_margin_normal"
-        android:text="Review :-"
+        android:text="@string/review_text"
         android:textColor="@color/black"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@id/user_name"
-        app:layout_constraintTop_toBottomOf="@id/user_name" />
+        app:layout_constraintTop_toBottomOf="@id/user_name"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/review_tv"
@@ -113,9 +117,10 @@
         android:layout_marginEnd="@dimen/view_end_margin_large"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/rating"
-        app:layout_constraintTop_toBottomOf="@id/rating"
+        app:layout_constraintStart_toStartOf="@id/review"
+        app:layout_constraintTop_toBottomOf="@id/review"
         tools:maxLines="2"
         tools:text="@tools:sample/lorem/random" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

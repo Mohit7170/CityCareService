@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:drawablePadding="8dp"
         android:gravity="center|start"
-        android:text="\u2022  30% off on second service"
+        tools:text="\u2022  30% off on second service"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -24,6 +24,6 @@
         android:layout_marginTop="@dimen/view_top_margin_normal"
         android:gravity="center"
         android:maxLines="2"
-        android:text="Ac Repair and Service" />
+        tools:text="Ac Repair and Service" />
 
 </LinearLayout>

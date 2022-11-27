@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.citycareservice.R
 import com.app.citycareservice.databinding.ItemContainerServiceDetailBinding
 import com.app.citycareservice.modals.serviceCategory.Service
-import com.app.citycareservice.ui.activities.service.BookServicesActivity
 import com.app.citycareservice.ui.activities.service.ServiceDetailActivity
 import com.app.citycareservice.utils.HelperClass
 import com.app.citycareservice.utils.Params
@@ -47,7 +46,7 @@ class ServicesDetailAdapter(private val activity: Activity, private val services
                 servicePriceTv.text = "₹ ${service.price}"
                 serviceTimeTv.text = service.completion_time
 
-                bookNowTv.setOnClickListener {
+              /*  bookNowTv.setOnClickListener {
                     activity.startActivity(
                         Intent(
                             activity,
@@ -58,7 +57,7 @@ class ServicesDetailAdapter(private val activity: Activity, private val services
                         )
                     )
                 }
-
+*/
                 root.setOnClickListener {
                     activity.startActivity(
                         Intent(activity, ServiceDetailActivity::class.java).putExtra(

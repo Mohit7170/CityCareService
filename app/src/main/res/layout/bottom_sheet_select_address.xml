@@ -17,7 +17,7 @@
         android:layout_marginStart="@dimen/activity_start_margin"
         android:layout_marginTop="@dimen/activity_top_margin"
         android:layout_marginEnd="@dimen/activity_end_margin"
-        android:text="Select Address"
+        android:text="@string/select_address_text"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
         app:layout_constraintStart_toStartOf="@id/guide_start"
         app:layout_constraintTop_toTopOf="parent" />

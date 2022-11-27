@@ -63,7 +63,7 @@
         android:gravity="center_vertical"
         android:paddingVertical="12dp"
         android:paddingStart="16dp"
-        android:text="Search for a Service"
+        android:text="@string/search_for_a_service_text"
         android:textSize="@dimen/text_size_normal"
         app:drawableStartCompat="@drawable/ic_baseline_search_24"
         app:layout_constraintEnd_toEndOf="parent"

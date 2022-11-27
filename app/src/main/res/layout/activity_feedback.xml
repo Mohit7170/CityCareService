@@ -16,7 +16,7 @@
         android:gravity="center_vertical"
         android:paddingVertical="@dimen/view_vertical_padding_normal"
         android:paddingStart="@dimen/activity_start_margin"
-        android:text="Give Feedback"
+        android:text="@string/give_feedback_text"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/back_iv"

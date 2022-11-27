@@ -29,7 +29,7 @@
         style="@style/tv.normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ac Gas Filling"
+        tools:text="Ac Gas Filling"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/service_iv" />
 
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/view_top_margin_normal"
-        android:text="₹ 499"
+        tools:text="₹ 499"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/service_name_tv"
         app:layout_constraintTop_toBottomOf="@id/service_name_tv" />
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/view_start_margin_normal"
-        android:text="\u2022 45 min "
+        tools:text="\u2022 45 min "
         app:layout_constraintStart_toEndOf="@id/service_price_tv"
         app:layout_constraintTop_toTopOf="@id/service_price_tv" />
 
@@ -63,7 +63,7 @@
         android:drawableStart="@drawable/ic_baseline_local_offer_24"
         android:drawablePadding="8dp"
         android:gravity="center"
-        android:text="30% off on second service"
+        tools:text="30% off on second service"
         app:layout_constraintStart_toStartOf="@id/service_price_tv"
         app:layout_constraintTop_toBottomOf="@id/service_price_tv" />
 
@@ -79,7 +79,7 @@
         tools:itemCount="2"
         tools:listitem="@layout/item_container_service_offer" />
 
-    <TextView
+  <!--  <TextView
         android:id="@+id/book_now_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -93,5 +93,5 @@
         app:layout_constraintEnd_toEndOf="@+id/service_iv"
         app:layout_constraintStart_toStartOf="@+id/service_iv"
         app:layout_constraintTop_toBottomOf="@+id/service_iv" />
-
+-->
 </androidx.constraintlayout.widget.ConstraintLayout>

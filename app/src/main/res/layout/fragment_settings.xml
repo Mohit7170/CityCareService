@@ -66,7 +66,7 @@
             android:gravity="center_vertical"
             android:paddingVertical="@dimen/_8sdp"
             android:paddingStart="@dimen/activity_start_margin"
-            android:text="My Profile"
+            android:text="@string/my_profile_text"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +81,7 @@
             android:gravity="center_vertical"
             android:paddingHorizontal="@dimen/activity_start_margin"
             android:paddingVertical="@dimen/view_vertical_padding_normal"
-            android:text="Register As Partner"
+            android:text="@string/register_as_partner_text"
             app:layout_constraintEnd_toEndOf="@id/guide_end"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/view" />
@@ -95,7 +95,7 @@
             android:gravity="center_vertical"
             android:paddingHorizontal="@dimen/activity_start_margin"
             android:paddingVertical="@dimen/view_vertical_padding_normal"
-            android:text="Manage Address"
+            android:text="@string/manage_address_text"
             app:layout_constraintEnd_toEndOf="@id/guide_end"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/partner_tv" />
@@ -109,7 +109,7 @@
             android:gravity="center_vertical"
             android:paddingHorizontal="@dimen/activity_start_margin"
             android:paddingVertical="@dimen/view_vertical_padding_normal"
-            android:text="Scheduled Booking"
+            android:text="@string/scheduled_booking_text"
             app:layout_constraintEnd_toEndOf="@id/guide_end"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/address_tv" />
@@ -123,7 +123,7 @@
             android:gravity="center_vertical"
             android:paddingHorizontal="@dimen/activity_start_margin"
             android:paddingVertical="@dimen/view_vertical_padding_normal"
-            android:text="My Wallet"
+            android:text="@string/my_wallet_text"
             app:layout_constraintEnd_toEndOf="@id/guide_end"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/booking_tv" />
@@ -137,7 +137,7 @@
             android:gravity="center_vertical"
             android:paddingHorizontal="@dimen/activity_start_margin"
             android:paddingVertical="@dimen/view_vertical_padding_normal"
-            android:text="FAQ"
+            android:text="@string/faq_text"
             app:layout_constraintEnd_toEndOf="@id/guide_end"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/wallet_tv" />
@@ -151,7 +151,7 @@
             android:gravity="center_vertical"
             android:paddingHorizontal="@dimen/activity_start_margin"
             android:paddingVertical="@dimen/view_vertical_padding_normal"
-            android:text="Share"
+            android:text="@string/share_text"
             app:layout_constraintEnd_toEndOf="@id/guide_end"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/faq_tv" />
@@ -165,7 +165,7 @@
             android:gravity="center_vertical"
             android:paddingHorizontal="@dimen/activity_start_margin"
             android:paddingVertical="@dimen/view_vertical_padding_normal"
-            android:text="Feedback"
+            android:text="@string/feedback_text"
             app:layout_constraintEnd_toEndOf="@id/guide_end"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/share_tv" />
@@ -179,7 +179,7 @@
             android:gravity="center_vertical"
             android:paddingHorizontal="@dimen/activity_start_margin"
             android:paddingVertical="@dimen/view_vertical_padding_normal"
-            android:text="Support"
+            android:text="@string/support_text"
             app:layout_constraintEnd_toEndOf="@id/guide_end"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/feedback_tv" />
@@ -193,7 +193,7 @@
             android:gravity="center_vertical"
             android:paddingHorizontal="@dimen/activity_start_margin"
             android:paddingVertical="@dimen/view_vertical_padding_normal"
-            android:text="Rate Us"
+            android:text="@string/rate_us_text"
             app:layout_constraintEnd_toEndOf="@id/guide_end"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/support_tv" />
@@ -204,7 +204,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/activity_top_margin"
-            android:text="Logout"
+            android:text="@string/logout_text"
             android:textColor="@color/red"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guide_end"

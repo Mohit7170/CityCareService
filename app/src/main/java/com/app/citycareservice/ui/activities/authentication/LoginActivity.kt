@@ -43,10 +43,11 @@ class LoginActivity : AppCompatActivity(), Params {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var activity: Activity
-    private lateinit var countDownTimer: CountDownTimer
+    private var countDownTimer: CountDownTimer? = null
     private var phoneNum = ""
     private lateinit var verificationId: String
     private lateinit var mAuth: FirebaseAuth
+    var click = 3
 
 
     private val mCallBack: OnVerificationStateChangedCallbacks =
@@ -74,7 +75,7 @@ class LoginActivity : AppCompatActivity(), Params {
                             "No",
                             true
                         ) {
-                            countDownTimer.cancel()
+                            countDownTimer?.cancel()
                             nextBtn.visibility = View.VISIBLE
                             codeEt.setText("")
                             codeEt.visibility = View.GONE
@@ -83,7 +84,7 @@ class LoginActivity : AppCompatActivity(), Params {
                             topTv.text = "Join us via Phone Number"
                             phoneEt.isFocusableInTouchMode = true
                             phoneEt.isFocusable = true
-                            countDownTimer.cancel()
+                            countDownTimer?.cancel()
                             phoneEt.setOnClickListener(null)
                         }
                     }
@@ -283,7 +284,6 @@ class LoginActivity : AppCompatActivity(), Params {
         signInWithCredential(credential)
     }
 
-    var click = 3
     private fun resendOtp() {
         if (click-- > 0) {
             startResendOtpTimer()
@@ -316,6 +316,8 @@ class LoginActivity : AppCompatActivity(), Params {
     }
 
     private fun startResendOtpTimer() {
+        countDownTimer?.cancel()
+
         countDownTimer = object : CountDownTimer(
             Params.RESEND_OTP_TIME * Params.ONE_SEC_IN_MILLS,
             Params.ONE_SEC_IN_MILLS
@@ -345,7 +347,7 @@ class LoginActivity : AppCompatActivity(), Params {
 
     override fun onDestroy() {
         super.onDestroy()
-        countDownTimer.cancel()
+        countDownTimer?.cancel()
     }
 
     companion object {

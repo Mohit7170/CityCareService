@@ -1,29 +1,29 @@
 package com.app.citycareservice.ui.activities.service
 
-import androidx.appcompat.app.AppCompatActivity
-import com.app.citycareservice.interfaces.click.AddressSelect
-import com.app.citycareservice.interfaces.click.DateSelect
-import com.app.citycareservice.interfaces.click.TimeSelect
 import android.app.Activity
-import com.app.citycareservice.utils.SharedPrefHandler
-import com.app.citycareservice.modals.AddressModal.AddressModal
-import com.app.citycareservice.adapters.recycler_view.SelectDateAdapter
-import com.app.citycareservice.adapters.recycler_view.SelectTimeAdapter
 import android.os.Bundle
-import com.app.citycareservice.R
-import com.app.citycareservice.utils.roomDB.AddressDatabase
-import com.app.citycareservice.ui.dialogs.bottomSheet.SelectAddressBottomSheet
 import android.os.Handler
-import com.app.citycareservice.utils.HelperClass
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import com.app.citycareservice.R
+import com.app.citycareservice.adapters.recycler_view.SelectDateAdapter
+import com.app.citycareservice.adapters.recycler_view.SelectTimeAdapter
 import com.app.citycareservice.databinding.ActivityBookServiceBinding
-import com.app.citycareservice.utils.ApiClient
-import com.app.citycareservice.modals.order.CreateOrderResponse
+import com.app.citycareservice.interfaces.click.AddressSelect
+import com.app.citycareservice.interfaces.click.DateSelect
+import com.app.citycareservice.interfaces.click.TimeSelect
 import com.app.citycareservice.interfaces.order.Service
+import com.app.citycareservice.modals.AddressModal.AddressModal
+import com.app.citycareservice.modals.order.CreateOrderResponse
+import com.app.citycareservice.ui.dialogs.bottomSheet.SelectAddressBottomSheet
+import com.app.citycareservice.utils.ApiClient
+import com.app.citycareservice.utils.HelperClass
 import com.app.citycareservice.utils.Params
 import com.app.citycareservice.utils.Params.INTENT_KEY_SERVICE_ID
+import com.app.citycareservice.utils.SharedPrefHandler
+import com.app.citycareservice.utils.roomDB.AddressDatabase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -61,20 +61,22 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
         }
         val addressDatabase = AddressDatabase.getInstance(activity)
         val addressModal: AddressModal =
-            if (prefHandler.hasKey(Params.SP_KEY_LAST_USED_ADDRESS_ID) && addressDatabase.addressDAO().addresses.isNullOrEmpty()) {
+            if (prefHandler.hasKey(Params.SP_KEY_LAST_USED_ADDRESS_ID) || addressDatabase.addressDAO().addresses.isNullOrEmpty()) {
                 addressDatabase.addressDAO()
                     .getAddress(prefHandler.getIntFromSharedPref(Params.SP_KEY_LAST_USED_ADDRESS_ID))
             } else {
 //                if(addressDatabase.addressDAO().addresses.is)
+//                if (addressDatabase.addressDAO().addresses.isNotEmpty())
                 addressDatabase.addressDAO().addresses[0]
+
+//                else
             }
         onClick(addressModal)
 
         with(binding) {
             changeAddressTv.setOnClickListener(View.OnClickListener {
                 SelectAddressBottomSheet(
-                    activity as BookServicesActivity,
-                    this@BookServicesActivity
+                    activity as BookServicesActivity, this@BookServicesActivity
                 )
             })
 
@@ -143,8 +145,7 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
             )
             call.enqueue(object : Callback<CreateOrderResponse?> {
                 override fun onResponse(
-                    call: Call<CreateOrderResponse?>,
-                    response: Response<CreateOrderResponse?>
+                    call: Call<CreateOrderResponse?>, response: Response<CreateOrderResponse?>
                 ) {
                     if (response.code() == HttpURLConnection.HTTP_UNAUTHORIZED) {
                         //Token Expired
@@ -156,8 +157,7 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
                         HelperClass.showToast(activity, apiResponse.message)
                         finish()
                     } else HelperClass.showToast(
-                        activity,
-                        activity.getString(R.string.something_went_wrong)
+                        activity, activity.getString(R.string.something_went_wrong)
                     )
                     HelperClass.hideLoader()
                 }
@@ -166,14 +166,12 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
                     Log.d(TAG, "onFailure: Error is -- $t")
                     HelperClass.hideLoader()
                     HelperClass.showToast(
-                        activity,
-                        activity.getString(R.string.something_went_wrong)
+                        activity, activity.getString(R.string.something_went_wrong)
                     )
                 }
             })
         } else HelperClass.showToast(
-            activity,
-            activity.getString(R.string.check_internet_connection)
+            activity, activity.getString(R.string.check_internet_connection)
         )
     }
 

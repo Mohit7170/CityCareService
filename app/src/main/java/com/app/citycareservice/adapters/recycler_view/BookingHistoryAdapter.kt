@@ -64,7 +64,7 @@ class BookingHistoryAdapter(
                 review.visibility = View.VISIBLE
 
                 val rating = service.rating
-                if(!TextUtils.isEmpty(rating) && !TextUtils.equals(rating,"0.0")){
+                if (!TextUtils.isEmpty(rating) && !TextUtils.equals(rating, "0.0")) {
                     reviewBar.visibility = View.VISIBLE
                     reviewBar.rating = rating.toFloat()
                 }

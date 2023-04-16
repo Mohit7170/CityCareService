@@ -41,7 +41,6 @@ class LoginActivity : AppCompatActivity(), Params {
     private lateinit var mAuth: FirebaseAuth
     var click = 3
 
-
     private val mCallBack: OnVerificationStateChangedCallbacks =
         object : OnVerificationStateChangedCallbacks() {
             override fun onCodeSent(s: String, forceResendingToken: ForceResendingToken) {
@@ -98,7 +97,6 @@ class LoginActivity : AppCompatActivity(), Params {
             }
         }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
@@ -125,7 +123,8 @@ class LoginActivity : AppCompatActivity(), Params {
                     return@OnClickListener
                 }
                 phoneNum = "+91$phoneNum"
-                sendVerificationCode()
+                verifyLoginApi()
+//                sendVerificationCode()
             })
             resendTv.setOnClickListener(View.OnClickListener { resendOtp() })
             codeEt.addTextChangedListener(object : TextWatcher {

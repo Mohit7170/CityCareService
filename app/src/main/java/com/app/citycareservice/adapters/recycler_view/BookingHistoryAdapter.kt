@@ -47,21 +47,28 @@ class BookingHistoryAdapter(
             val booking = bookingHistoryResponses[position]
             val service = booking.services[0]
 
-            val isProcessing = (booking.status == CommonEnum.Status.Processing.value)
+            val status = booking.status
 
-            if (isProcessing) {
+            orderStatus.text = "${status.value.capitalize()}"
+            orderStatus.setTextColor(activity.resources.getColor(status.color))
+
+            if (status != CommonEnum.Status.completed) {
                 servicePriceTv.text = "₹ ${booking.services[0].price}"
                 userIv.setImageDrawable(activity.getDrawable(R.drawable.progress))
-                userName.text = "Order\nProcessing"
                 review.visibility = View.GONE
                 reviewBar.visibility = View.GONE
             } else {
                 servicePriceTv.text = "₹ ${booking.price}"
                 val user = booking.user[0]
                 HelperClass.setImage(activity, user.profile_pic, userIv, R.drawable.ic_placeholder)
+                userName.visibility = View.VISIBLE
                 userName.text = user.name
-                reviewTv.text = booking.remarks
-                review.visibility = View.VISIBLE
+
+                booking.review?.let {
+                    review.visibility = View.VISIBLE
+                    reviewTv.visibility = View.VISIBLE
+                    reviewTv.text = "${it.review} \t(${it.rate})"
+                }
 
                 val rating = service.rating
                 if (!TextUtils.isEmpty(rating) && !TextUtils.equals(rating, "0.0")) {
@@ -73,12 +80,6 @@ class BookingHistoryAdapter(
             serviceNameTv.text = service.title
             serviceDateTv.text = booking.service_date
             serviceTimeTv.text = booking.service_time
-
-//            servicePriceTv.text = "₹ ${
-//                if (isProcessing) booking.services[0].price
-//                else booking.price
-//            }"
-//            ratingBar.rating = booking.rating.toFloat()
 
         }
     }

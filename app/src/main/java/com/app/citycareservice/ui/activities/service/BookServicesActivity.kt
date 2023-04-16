@@ -64,22 +64,15 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
 
         if (addressDatabase.addresses.isNullOrEmpty()) {
             val addAddressBottomSheet = AddAddressBottomSheet {
-                val addressModal: AddressModal =
-                    if (prefHandler.hasKey(Params.SP_KEY_LAST_USED_ADDRESS_ID) || addressDatabase.addresses.isNullOrEmpty()) {
-                        addressDatabase.getAddress(prefHandler.getIntFromSharedPref(Params.SP_KEY_LAST_USED_ADDRESS_ID))
-                    } else {
-                        addressDatabase.addresses[0]
-                    }
+                addressModal =
+                    addressDatabase.addresses[0]
                 onClick(addressModal)
             }
             addAddressBottomSheet.show(supportFragmentManager, "AddAddressBottomFrag")
         } else {
-            val addressModal: AddressModal =
-                if (prefHandler.hasKey(Params.SP_KEY_LAST_USED_ADDRESS_ID) || addressDatabase.addresses.isNullOrEmpty()) {
-                    addressDatabase.getAddress(prefHandler.getIntFromSharedPref(Params.SP_KEY_LAST_USED_ADDRESS_ID))
-                } else {
-                    addressDatabase.addresses[0]
-                }
+            addressModal =
+                addressDatabase.addresses[0]
+
             onClick(addressModal)
         }
 
@@ -90,12 +83,7 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
                 )
             })
 
-            /*  if (prefHandler.hasKey(SP_KEY_LAST_USED_ADDRESS))
-                address_tv.setText(prefHandler.getString(SP_KEY_LAST_USED_ADDRESS));
-            else
-                change_address_tv.performClick();*/
             val intent = intent
-            //        time_to_finish = intent.getStringExtra(INTENT_KEY_TIME_TO_FINISH");
             try {
 
                 serviceId = intent.getStringExtra(INTENT_KEY_SERVICE_ID)
@@ -114,7 +102,7 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
                 timeRv.findViewHolderForAdapterPosition(4)?.itemView?.performClick()
                 HelperClass.hideLoader()
             }, 1000)
-            bookBtn.setOnClickListener(View.OnClickListener { validateForm() })
+            bookBtn.setOnClickListener{ validateForm() }
 
         }
 

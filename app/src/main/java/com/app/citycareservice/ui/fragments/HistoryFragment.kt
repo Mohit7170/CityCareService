@@ -57,9 +57,13 @@ class HistoryFragment : Fragment(), Params {
 
         HelperClass.changeStatusBarColor(activity, R.color.white, true)
 
-
 //        binding.historySv.viewTreeObserver.addOnScrollChangedListener(scrollPaginationListener)
 
+    }
+
+
+    override fun onResume() {
+        super.onResume()
         myOrders()
     }
 

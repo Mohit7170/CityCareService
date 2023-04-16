@@ -1,5 +1,7 @@
 package com.app.citycareservice.modals.order.myOrders
 
+import com.app.citycareservice.utils.CommonEnum
+
 data class Result(
     val _id: String,
     val createdAt: String,
@@ -12,5 +14,8 @@ data class Result(
     val services: List<Service>,
     val user: List<User>,
     val user_id: String,
-   val status: String
+    val review: Review? = null,
+   val status: CommonEnum.Status
 )
+
+data class Review(val rate:String,val review:String)

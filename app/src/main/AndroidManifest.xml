@@ -16,15 +16,12 @@
         android:theme="@style/Theme.CityCareService"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Test"
-            android:exported="false" />
-        <activity
             android:name="com.app.citycareservice.ui.activities.service.ServiceBooking"
             android:exported="false" />
         <activity
             android:name="com.app.citycareservice.ui.activities.service.BookServicesActivity"
-            android:exported="true"
-            android:theme="@style/blackActionBar"></activity>
+            android:exported="false"
+            android:theme="@style/blackActionBar" />
         <activity
             android:name="com.app.citycareservice.ui.activities.settings.SupportActivity"
             android:exported="false" />

@@ -17,6 +17,7 @@ import com.app.citycareservice.interfaces.click.TimeSelect
 import com.app.citycareservice.interfaces.order.Service
 import com.app.citycareservice.modals.AddressModal.AddressModal
 import com.app.citycareservice.modals.order.CreateOrderResponse
+import com.app.citycareservice.ui.dialogs.bottomSheet.AddAddressBottomSheet
 import com.app.citycareservice.ui.dialogs.bottomSheet.SelectAddressBottomSheet
 import com.app.citycareservice.utils.ApiClient
 import com.app.citycareservice.utils.HelperClass
@@ -59,19 +60,28 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
         } catch (e: ParseException) {
             e.printStackTrace()
         }
-        val addressDatabase = AddressDatabase.getInstance(activity)
-        val addressModal: AddressModal =
-            if (prefHandler.hasKey(Params.SP_KEY_LAST_USED_ADDRESS_ID) || addressDatabase.addressDAO().addresses.isNullOrEmpty()) {
-                addressDatabase.addressDAO()
-                    .getAddress(prefHandler.getIntFromSharedPref(Params.SP_KEY_LAST_USED_ADDRESS_ID))
-            } else {
-//                if(addressDatabase.addressDAO().addresses.is)
-//                if (addressDatabase.addressDAO().addresses.isNotEmpty())
-                addressDatabase.addressDAO().addresses[0]
+        val addressDatabase = AddressDatabase.getInstance(activity).addressDAO()
 
-//                else
+        if (addressDatabase.addresses.isNullOrEmpty()) {
+            val addAddressBottomSheet = AddAddressBottomSheet {
+                val addressModal: AddressModal =
+                    if (prefHandler.hasKey(Params.SP_KEY_LAST_USED_ADDRESS_ID) || addressDatabase.addresses.isNullOrEmpty()) {
+                        addressDatabase.getAddress(prefHandler.getIntFromSharedPref(Params.SP_KEY_LAST_USED_ADDRESS_ID))
+                    } else {
+                        addressDatabase.addresses[0]
+                    }
+                onClick(addressModal)
             }
-        onClick(addressModal)
+            addAddressBottomSheet.show(supportFragmentManager, "AddAddressBottomFrag")
+        } else {
+            val addressModal: AddressModal =
+                if (prefHandler.hasKey(Params.SP_KEY_LAST_USED_ADDRESS_ID) || addressDatabase.addresses.isNullOrEmpty()) {
+                    addressDatabase.getAddress(prefHandler.getIntFromSharedPref(Params.SP_KEY_LAST_USED_ADDRESS_ID))
+                } else {
+                    addressDatabase.addresses[0]
+                }
+            onClick(addressModal)
+        }
 
         with(binding) {
             changeAddressTv.setOnClickListener(View.OnClickListener {
@@ -155,6 +165,7 @@ class BookServicesActivity : AppCompatActivity(), Params, AddressSelect, DateSel
                     val apiResponse = response.body()
                     if (response.code() == HttpURLConnection.HTTP_OK && apiResponse != null) {
                         HelperClass.showToast(activity, apiResponse.message)
+                        setResult(RESULT_OK)
                         finish()
                     } else HelperClass.showToast(
                         activity, activity.getString(R.string.something_went_wrong)

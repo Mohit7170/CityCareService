@@ -1,22 +1,19 @@
 package com.app.citycareservice.ui.fragments
 
 import android.app.Activity
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import android.os.Bundle
-import com.app.citycareservice.R
-import com.app.citycareservice.utils.HelperClass
-import com.app.citycareservice.utils.SharedPrefHandler
 import android.content.Intent
+import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.app.citycareservice.ui.activities.settings.ManageAddressActivity
-import com.app.citycareservice.ui.activities.authentication.EditProfileActivity
-import com.app.citycareservice.ui.activities.settings.ScheduledBookingsActivity
-import com.app.citycareservice.ui.activities.settings.FeedbackActivity
-import com.app.citycareservice.ui.activities.settings.SupportActivity
+import com.app.citycareservice.R
 import com.app.citycareservice.databinding.FragmentSettingsBinding
+import com.app.citycareservice.ui.activities.authentication.EditProfileActivity
+import com.app.citycareservice.ui.activities.settings.FeedbackActivity
+import com.app.citycareservice.utils.HelperClass
 import com.app.citycareservice.utils.Params
+import com.app.citycareservice.utils.SharedPrefHandler
 
 class SettingsFragment : Fragment(), Params {
 
@@ -39,15 +36,7 @@ class SettingsFragment : Fragment(), Params {
 
         with(binding) {
 
-            val prefHandler = SharedPrefHandler(activity)
-            if (prefHandler.hasKey(Params.SP_KEY_USER_NAME)) userNameTv.text =
-                prefHandler.getString(
-                    Params.SP_KEY_USER_NAME
-                )
-            if (prefHandler.hasKey(Params.SP_KEY_USER_PHONE)) userPhoneTv.text =
-                prefHandler.getString(
-                    Params.SP_KEY_USER_PHONE
-                )
+
             partnerTv.setOnClickListener {
                 HelperClass.openUrl(
                     activity,
@@ -120,6 +109,22 @@ class SettingsFragment : Fragment(), Params {
                     "Upcoming"
                 )
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        with(binding) {
+
+            val prefHandler = SharedPrefHandler(activity)
+            if (prefHandler.hasKey(Params.SP_KEY_USER_NAME)) userNameTv.text =
+                prefHandler.getString(
+                    Params.SP_KEY_USER_NAME
+                )
+            if (prefHandler.hasKey(Params.SP_KEY_USER_PHONE)) userPhoneTv.text =
+                prefHandler.getString(
+                    Params.SP_KEY_USER_PHONE
+                )
         }
     }
 

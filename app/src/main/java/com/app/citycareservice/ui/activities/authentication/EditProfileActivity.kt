@@ -65,12 +65,15 @@ class EditProfileActivity : AppCompatActivity(), Params {
             if (bundle.containsKey(BUNDLE_KEY_USER_FULL_NAME)
                 || bundle.containsKey(BUNDLE_KEY_USER_EMAIL)
             ) {
+
+
+
                 startService(
                     Intent(
                         activity, UpdateProfileService::class.java
                     ).putExtra(Params.BUNDLE_NAME_PROFILE_DATA, bundle)
                 )
-                HelperClass.showToast(activity, "Profile Update Successfully")
+//                HelperClass.showToast(activity, "Profile Update Successfully")
                 finish()
             } else {
                 HelperClass.showToast(activity, "Please enter name or email to be updated")

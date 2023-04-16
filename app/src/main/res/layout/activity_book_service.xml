@@ -59,7 +59,9 @@
             android:layout_marginTop="@dimen/view_top_margin_normal"
             android:ellipsize="end"
             android:paddingVertical="@dimen/_4sdp"
-            app:layout_constraintEnd_toEndOf="@id/guide_end"
+            android:maxLines="2"
+            android:layout_marginEnd="@dimen/view_end_margin_normal"
+            app:layout_constraintEnd_toStartOf="@id/change_address_tv"
             app:layout_constraintStart_toStartOf="@id/guide_start"
             app:layout_constraintTop_toBottomOf="@id/address_type_tv"
             tools:text="@tools:sample/cities" />

@@ -35,7 +35,7 @@ class FirstServicesAdapter(
 
             val service = allService[position]
             serviceNameTv.text = service.title
-            HelperClass.setImage(activity, service.icon, serviceIv, R.drawable.circle)
+            HelperClass.setImage(activity, service.icon, serviceIv, R.drawable.ic_placeholder)
 
             root.setOnClickListener {
                 activity.startActivity(
@@ -45,10 +45,6 @@ class FirstServicesAdapter(
                 )
             }
         }
-
-        /* holder.main_layout_single_service.setOnClickListener {
-             //                activity.startActivity(new Intent(activity, ServicesActivity.class).putExtra(INTENT_KEY_SERVICE_CATEGORY_ID, ""));
-         }*/
     }
 
     override fun getItemCount(): Int {

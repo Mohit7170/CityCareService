@@ -1,38 +1,30 @@
 package com.app.citycareservice.ui.activities.authentication
 
-import androidx.appcompat.app.AppCompatActivity
 import android.app.Activity
-import android.os.CountDownTimer
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks
-import com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken
-import com.app.citycareservice.utils.HelperClass
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.FirebaseException
-import android.os.Bundle
-import com.app.citycareservice.R
-import android.text.TextUtils
-import android.text.TextWatcher
-import android.text.Editable
-import android.text.SpannableString
-import android.text.style.ClickableSpan
-import android.text.Spanned
-import android.text.method.LinkMovementMethod
-import com.google.firebase.auth.PhoneAuthOptions
-import com.google.firebase.auth.PhoneAuthProvider
-import com.app.citycareservice.interfaces.api.Authentication
-import com.app.citycareservice.utils.ApiClient
 import android.content.Intent
+import android.os.Bundle
+import android.os.CountDownTimer
+import android.text.*
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.util.Log
 import android.util.Patterns
 import android.view.View
-import com.app.citycareservice.ui.activities.MainActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.app.citycareservice.R
 import com.app.citycareservice.databinding.ActivityLoginBinding
+import com.app.citycareservice.interfaces.api.Authentication
 import com.app.citycareservice.modals.authentication.allUserData.Result
 import com.app.citycareservice.modals.authentication.allUserData.UserDetailResponse
+import com.app.citycareservice.ui.activities.MainActivity
+import com.app.citycareservice.utils.ApiClient
+import com.app.citycareservice.utils.HelperClass
 import com.app.citycareservice.utils.Params
 import com.app.citycareservice.utils.SharedPrefHandler
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.FirebaseException
+import com.google.firebase.auth.*
+import com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken
+import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -162,19 +154,12 @@ class LoginActivity : AppCompatActivity(), Params {
         val spannableString = SpannableString(termsText)
         val clickableSpan1: ClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
-/*
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(TERMS_OF_SERVICE));
-                startActivity(intent);*/
-                HelperClass.showToast(activity, "Terms")
+                HelperClass.openUrl(activity, "https://www.citycareservice.com/terms-conditions/")
             }
         }
         val clickableSpan2: ClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
-                /* Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(PRIVACY_POLICY));
-                startActivity(intent);*/
-                HelperClass.showToast(activity, "Privacy")
+                HelperClass.openUrl(activity, "https://www.citycareservice.com/terms-conditions/")
             }
         }
         spannableString.setSpan(clickableSpan1, 31, 51, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)

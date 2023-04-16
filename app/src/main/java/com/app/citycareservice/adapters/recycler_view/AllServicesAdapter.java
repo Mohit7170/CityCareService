@@ -38,12 +38,9 @@ public class AllServicesAdapter extends RecyclerView.Adapter<AllServicesAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.main_layout_single_service.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HelperClass.showToast(activity, "Clicked -- " + holder.getAdapterPosition());
+        holder.main_layout_single_service.setOnClickListener(v -> {
+            HelperClass.showToast(activity, "Clicked -- " + holder.getAdapterPosition());
 //                activity.startActivity(new Intent(activity, ServicesActivity.class).putExtra(INTENT_KEY_SERVICE_CATEGORY_ID, ""));
-            }
         });
 
     }

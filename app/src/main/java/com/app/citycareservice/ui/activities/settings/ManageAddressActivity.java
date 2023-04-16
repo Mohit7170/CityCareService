@@ -2,7 +2,6 @@ package com.app.citycareservice.ui.activities.settings;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,14 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.citycareservice.R;
-import com.app.citycareservice.ui.dialogs.bottomSheet.AddAddressBottomSheet;
 import com.app.citycareservice.adapters.recycler_view.settings.AddressAdpater;
-import com.app.citycareservice.interfaces.sheetDismissListner;
+import com.app.citycareservice.ui.dialogs.bottomSheet.AddAddressBottomSheet;
 import com.app.citycareservice.utils.roomDB.AddressDatabase;
 
-public class ManageAddressActivity extends AppCompatActivity implements sheetDismissListner {
+public class ManageAddressActivity extends AppCompatActivity {
 
-    private Activity activity = ManageAddressActivity.this;
+    private final Activity activity = ManageAddressActivity.this;
 
     private ImageView back_iv;
     private TextView add_address_tv;
@@ -37,37 +35,24 @@ public class ManageAddressActivity extends AppCompatActivity implements sheetDis
         addressAdpater = new AddressAdpater(activity);
         addresses_rv.setAdapter(addressAdpater);
 
-        back_iv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        back_iv.setOnClickListener(v -> onBackPressed());
 
-        add_address_tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                startActivity(new Intent(activity,AddAddressBottomSheet.class));
-                AddAddressBottomSheet addAddressBottomSheet = new AddAddressBottomSheet(ManageAddressActivity.this);
-                addAddressBottomSheet.show(getSupportFragmentManager(), "AddAddressBottomFrag");
-
-//                new AddAddressBottomSheet().show(getSupportFragmentManager(), "AddAddressBottomFrag");
-//                new AddAddressBottomSheet(activity).show();
-            }
+        add_address_tv.setOnClickListener(v -> {
+            AddAddressBottomSheet addAddressBottomSheet = new AddAddressBottomSheet(this::setDataInRv);
+            addAddressBottomSheet.show(getSupportFragmentManager(), "AddAddressBottomFrag");
         });
 
     }
 
     @Override
     protected void onStart() {
-        setData();
+        setDataInRv();
         super.onStart();
     }
 
-
-    @Override
-    public void setData() {
+    private void setDataInRv() {
         AddressDatabase addressDatabase = AddressDatabase.getInstance(activity);
         addressAdpater.setData(addressDatabase.addressDAO().getAddresses());
     }
+
 }

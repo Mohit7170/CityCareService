@@ -162,11 +162,9 @@ public class HelperClass implements Params {
     }
 
     public static void openUrl(Activity activity, String url) {
-
         Uri uri = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         activity.startActivity(intent);
-
     }
 
     public static boolean getNetworkInfo(Context activity) {

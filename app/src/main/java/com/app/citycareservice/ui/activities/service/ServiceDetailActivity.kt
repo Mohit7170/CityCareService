@@ -23,6 +23,7 @@ class ServiceDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityServiceDetailBinding
     private lateinit var activity: Activity
+    private val REQ_CODE_RESULT = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,18 +37,29 @@ class ServiceDetailActivity : AppCompatActivity() {
         getCategoryDetails()
         try {
             binding.bookNowBtn.setOnClickListener {
-                startActivity(
+                startActivityForResult(
                     Intent(
                         activity,
                         BookServicesActivity::class.java
                     ).putExtra(
                         INTENT_KEY_SERVICE_ID, intent.getStringExtra(INTENT_KEY_SERVICE_ID)
                             ?: throw Exception("Service Id can't be null")
-                    )
+                    ), REQ_CODE_RESULT
                 )
+
             }
         } catch (e: Exception) {
             e.printStackTrace()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Log.d(TAG, "onActivityResult: $requestCode   --- $resultCode")
+        if (requestCode == REQ_CODE_RESULT) {
+            if (resultCode == RESULT_OK) {
+                finish()
+            }
         }
     }
 
@@ -90,7 +102,7 @@ class ServiceDetailActivity : AppCompatActivity() {
 
                                         HelperClass.setImage(
                                             activity,
-                                            data.icon,
+                                            data.image,
                                             serviceIv,
                                             R.drawable.ic_placeholder
                                         )
@@ -98,13 +110,12 @@ class ServiceDetailActivity : AppCompatActivity() {
                                         ratingTv.text = data.rating
                                         serviceNameTv.text = data.title
                                         detailTv.text = data.description
-                                        priceTv.text = "₹ ${data.price}"
-
-                                        /*     servicesRv.adapter =
-                                                 ServicesDetailAdapter(activity, data.services)
-     */
+                                        priceTv.text = buildString {
+                                            append("₹ ")
+                                            append(data.price)
+                                        }
+                                        timeTv.text = data.completion_time
                                     }
-
                                 }
 
                                 /* if (pageNo == 1) historyAdapter.setData(apiResponse.results)

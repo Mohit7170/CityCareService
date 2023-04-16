@@ -43,13 +43,13 @@
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_100sdp"
         android:layout_marginTop="@dimen/view_top_margin_large"
-        android:background="@color/purple_200"
         android:padding="2dp"
+        android:src="@drawable/ic_placeholder"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
         app:layout_constraintStart_toStartOf="@id/guide_start"
         app:layout_constraintTop_toBottomOf="@id/below_top_tv"
         app:shapeAppearanceOverlay="@style/roundedImageView"
-        app:strokeColor="@color/purple_200"
+        app:strokeColor="@color/black"
         app:strokeWidth="2dp"
         tools:src="@tools:sample/avatars" />
 

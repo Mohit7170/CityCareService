@@ -49,7 +49,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         Result serviceModal = results.get(position);
 
-        HelperClass.setImage(activity, serviceModal.getImage(), holder.service_iv, R.drawable.circle);
+        HelperClass.setImage(activity, serviceModal.getImage(), holder.service_iv, R.drawable.ic_placeholder);
         holder.service_name_tv.setText(serviceModal.getTitle());
         holder.service_desc_tv.setText(serviceModal.getDescription());
 

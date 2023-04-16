@@ -59,7 +59,7 @@
             style="@style/et.normal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPostalAddress|textCapWords"
+            android:inputType="textPersonName|textCapWords"
             android:maxLines="1"
             tools:text="@tools:sample/full_names" />
 
@@ -88,7 +88,7 @@
             android:id="@+id/email_tef"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPostalAddress|textCapWords"
+            android:inputType="textEmailAddress"
             android:maxLines="1"
             tools:text="abc@gmail.com" />
 
@@ -122,7 +122,7 @@
             android:clickable="false"
             android:cursorVisible="false"
             android:enabled="false"
-            android:inputType="textPhonetic"
+            android:inputType="phone"
             android:maxLines="1"
             tools:text="+91 9632587145" />
 

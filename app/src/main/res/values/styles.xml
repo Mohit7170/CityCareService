@@ -8,6 +8,7 @@
     </style>
 
     <style name="tv.heading">
+        <item name="android:textColor">@color/font_black_dark</item>
         <item name="android:textSize">@dimen/text_size_heading</item>
         <item name="android:textStyle">bold</item>
     </style>

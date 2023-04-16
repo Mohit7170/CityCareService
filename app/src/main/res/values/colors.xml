@@ -19,6 +19,7 @@
     <color name="red">#9e2313</color>
     <color name="call_green">#49D160</color>
     <color name="call_red">#F5392D</color>
+    <color name="font_black_dark">#000000</color>
     <color name="font_black">#242424</color>
     <color name="font_black_light">#2C2B2B</color>
     <color name="font_grey">#959595</color>

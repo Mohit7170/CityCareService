@@ -52,12 +52,7 @@ public class SearchActivity extends AppCompatActivity implements Params {
         search_rv.setAdapter(searchAdapter);
 
 
-        back_iv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        back_iv.setOnClickListener(v -> onBackPressed());
 
         searchView.requestFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

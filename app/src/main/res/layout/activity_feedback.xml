@@ -57,7 +57,6 @@
         app:boxCornerRadiusBottomStart="@dimen/_4sdp"
         app:boxCornerRadiusTopEnd="@dimen/_4sdp"
         app:boxCornerRadiusTopStart="@dimen/_4sdp"
-        app:endIconMode="clear_text"
         app:expandedHintEnabled="false"
         app:hintAnimationEnabled="false"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
